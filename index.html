@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141210">
+    <meta name="description" content="Discover Dhess: European Edition. A world of strategy, resources, and possibility.">
+    <title>DHESS: European Edition — Go beyond chess</title>
+    <link rel="icon" href="data:,">
+    <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
+    <link rel="preload" as="image" href="public/images/home/hero-background-desktop.webp" media="(min-width: 701px)">
+    <link rel="preload" as="image" href="public/images/home/hero-background-mobile.webp" media="(max-width: 700px)">
+    <link rel="stylesheet" href="styles.css?v=m02-type-final-4">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="DHESS: European Edition, home">
+          <span class="brand-name">DHESS</span>
+          <span class="brand-edition">✦ EUROPEAN EDITION ✦</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+          <a class="nav-link is-active" href="./" aria-current="page">Home</a>
+          <span class="nav-link nav-pending" aria-label="Learn, coming soon">Learn</span>
+          <span class="nav-link nav-pending" aria-label="Shop, coming soon">Shop</span>
+          <span class="nav-link nav-pending" aria-label="About, coming soon">About</span>
+          <button class="button button-gold header-cta" type="button" disabled title="Shop destination coming soon">Shop the game ↗</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-scene" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 700px)" srcset="public/images/home/hero-background-mobile.webp">
+            <img class="scene-background" src="public/images/home/hero-background-desktop.webp" width="1672" height="941" alt="" fetchpriority="high">
+          </picture>
+          <div class="board-assembly">
+            <img class="board-shadow" src="public/images/home/hero-board-contact-shadow.webp" width="1672" height="941" alt="">
+            <img class="board-image" src="public/images/home/hero-board-provisional.webp" width="1320" height="840" alt="">
+          </div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">A NEW REALM OF STRATEGY</p>
+          <h1 id="hero-title">Go beyond<br>chess.</h1>
+          <p class="hero-description">Discover Dhess: European Edition.<br>A world of strategy, resources, and possibility.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#game-facts">Explore the game</a>
+            <button class="button button-outline" type="button" disabled title="Learn destination coming soon">Learn to play</button>
+          </div>
+        </div>
+        <p class="sr-only">The artwork shows an illustrated European landscape, a strategy board, and two opposing sets of sculpted game pieces.</p>
+      </section>
+
+      <section class="game-facts" id="game-facts" aria-label="Game facts">
+        <ul class="facts-list">
+          <li>
+            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="18" cy="15" r="6"/><circle cx="34" cy="17" r="5"/><path d="M5 38v-4c0-6 5-10 13-10s13 4 13 10v4H5Zm29-13c5 0 9 4 9 9v4h-8"/></svg>
+            <span>2 players</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="18" cy="15" r="6"/><circle cx="34" cy="17" r="5"/><path d="M5 38v-4c0-6 5-10 13-10s13 4 13 10v4H5Zm29-13c5 0 9 4 9 9v4h-8"/></svg>
+            <span>Ages 14+</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="18"/><path d="M24 12v13l9 6"/></svg>
+            <span>30–60 minutes</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
