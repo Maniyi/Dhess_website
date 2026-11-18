@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>European Edition introduction — artwork composition review</title>
+    <style>
+      @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('../../../public/fonts/CormorantGaramond-600-latin.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --parchment: #efd3a5;
+        --ink: #3b291b;
+        --oxblood: #851e18;
+        --display: 'Cormorant Garamond', Georgia, serif;
+        --interface: Georgia, 'Times New Roman', serif;
+        --body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--ink); background: var(--parchment); }
+      .intro-review {
+        position: relative;
+        min-height: 100vh;
+        padding: 47px max(32px, calc((100vw - 1370px) / 2)) 55px;
+        text-align: center;
+        background: var(--parchment) url('../../../public/images/home/european-intro-background-desktop.webp?v=2') center / cover no-repeat;
+      }
+      .section-heading { position: relative; z-index: 1; }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        margin: 0 0 8px;
+        color: var(--oxblood);
+        font: 400 18px/1.25 var(--interface);
+        letter-spacing: .14em;
+      }
+      .eyebrow::before, .eyebrow::after { content: ''; width: 91px; height: 1px; background: #94744b; }
+      h1 {
+        margin: 0;
+        font: 600 70px/.87 var(--display);
+        letter-spacing: -.025em;
+      }
+      .features {
+        width: min(100%, 1340px);
+        margin: 36px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .feature { min-width: 0; padding: 0 24px; }
+      .feature + .feature { border-left: 1px solid rgba(111, 73, 39, .56); }
+      .feature-media { height: 266px; display: flex; align-items: center; justify-content: center; }
+      .feature-media img { display: block; max-width: 100%; height: auto; object-fit: contain; }
+      .feature-board img { width: 420px; }
+      .feature-pieces img { width: 322px; }
+      .feature-resources img { width: 350px; }
+      .feature h2 { margin: 10px 0 8px; color: var(--oxblood); font: 600 36px/1 var(--display); }
+      .feature p { max-width: 340px; margin: 0 auto; font: 400 18px/1.34 var(--body); }
+      @media (max-width: 700px) {
+        .intro-review {
+          isolation: isolate;
+          min-height: 0;
+          padding: 170px 19px 60px;
+          background-image: url('../../../public/images/home/european-intro-paper-tile.webp');
+          background-position: center;
+          background-size: 300px 300px;
+          background-repeat: repeat;
+        }
+        .intro-review::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          background: url('../../../public/images/home/european-intro-background-mobile.webp') center top / 100% auto no-repeat;
+          -webkit-mask-image: linear-gradient(to bottom, #000 0px, #000 490px, transparent 710px);
+          mask-image: linear-gradient(to bottom, #000 0px, #000 490px, transparent 710px);
+        }
+        .section-heading, .features { position: relative; z-index: 1; }
+        .eyebrow { gap: 10px; font-size: 13px; letter-spacing: .09em; white-space: nowrap; }
+        .eyebrow::before, .eyebrow::after { width: 27px; }
+        h1 { font-size: clamp(43px, 12.3vw, 54px); line-height: .9; }
+        .features { margin-top: 27px; display: block; }
+        .feature { padding: 0 4px 31px; }
+        .feature + .feature { border-left: 0; border-top: 1px solid rgba(111, 73, 39, .48); padding-top: 28px; }
+        .feature-media { height: 230px; }
+        .feature-board img { width: 350px; }
+        .feature-pieces img { width: 270px; }
+        .feature-resources img { width: 300px; }
+        .feature h2 { margin: 7px 0; font-size: 32px; }
+        .feature p { max-width: 315px; font-size: 16px; line-height: 1.4; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="intro-review" aria-labelledby="intro-heading">
+      <header class="section-heading">
+        <p class="eyebrow">THE EUROPEAN EDITION</p>
+        <h1 id="intro-heading">A familiar foundation.<br>A new frontier.</h1>
+      </header>
+      <div class="features">
+        <article class="feature feature-board">
+          <div class="feature-media"><img src="../../../public/images/home/european-intro-board.webp" width="2000" height="1000" alt="Empty ten by ten DHESS board in shallow perspective"></div>
+          <h2>An expanded board</h2>
+          <p>A grand 10×10 landscape with European landmarks and resources that open up new possibilities.</p>
+        </article>
+        <article class="feature feature-pieces">
+          <div class="feature-media"><img src="../../../public/images/home/european-intro-pieces.webp" width="1244" height="1024" alt="Ivory queen, king and hooded game pieces"></div>
+          <h2>A distinctive cast</h2>
+          <p>Command a unique set of pieces inspired by European history and tradition.</p>
+        </article>
+        <article class="feature feature-resources">
+          <div class="feature-media"><img src="../../../public/images/home/european-intro-resources.webp" width="1370" height="981" alt="Gold, blue fish, flame, timber and stone illustrations"></div>
+          <h2>A world of resources</h2>
+          <p>A rich landscape of resources that adds new layers of strategy to every match.</p>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
