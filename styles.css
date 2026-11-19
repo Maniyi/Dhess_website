@@ -122,6 +122,9 @@ a.button-gold:hover { filter: brightness(1.1); }
   .facts-list svg { width: 26px; height: 26px; }
 }
 
+/* Keep the homepage artwork and section spacing aligned with the approved layout. */
+.hero-actions .button-outline { min-height: calc(17px + 1.2em + max(13.2px, .825em)); }
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* European Edition introduction */
@@ -282,6 +285,7 @@ a.button-gold:hover { filter: brightness(1.1); }
 }
 .next-move__link {
   display: inline-block;
+  margin-bottom: calc(3px + max(13.2px, .825em));
   color: var(--gold);
   font: 400 clamp(18px, 1.4vw, 22px)/1.2 var(--font-interface);
 }
@@ -449,4 +453,315 @@ a.button-gold:hover { filter: brightness(1.1); }
   .product-section h2 { font-size: 50px; }
   .product-section__eyebrow { font-size: 11px; letter-spacing: .13em; }
   .site-footer__nav { column-gap: 12px; }
+}
+
+/* Learn hero and chapters */
+.learn-hero {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(480px, 48.5vw, 800px);
+  background: linear-gradient(160deg, #141210 38%, #302219 76%, #23160e);
+}
+
+.learn-hero__scene {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+}
+
+.learn-hero__scenery {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(#000 16%, transparent 46%);
+}
+
+.learn-hero__scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #141210 4%, #141210ed 23%, #14121099 36%, transparent 57%);
+  pointer-events: none;
+}
+
+.learn-hero__board {
+  position: absolute;
+  width: 88%;
+  height: 54%;
+  right: -14%;
+  bottom: -7%;
+  filter: brightness(.87);
+}
+
+.learn-hero__cast {
+  position: absolute;
+  z-index: 2;
+  right: -2%;
+  bottom: 12%;
+  height: min(85%, 42vw);
+  aspect-ratio: 3 / 2;
+}
+
+.learn-hero__cast::before {
+  content: '';
+  position: absolute;
+  inset: 79% 12% -1% 13%;
+  background:
+    radial-gradient(ellipse 25% 21% at 26% 95%, #100b08e6 18%, transparent 100%),
+    radial-gradient(ellipse 21% 21% at 58% 76%, #100b08de 18%, transparent 100%),
+    radial-gradient(ellipse 19% 18% at 86% 43%, #100b08d9 18%, transparent 100%);
+}
+
+.learn-hero__pieces {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.learn-hero__cloth {
+  position: absolute;
+  z-index: 3;
+  bottom: -2.3vw;
+  left: -2%;
+  width: 75%;
+  height: auto;
+  mask-image: linear-gradient(90deg, #000 28%, transparent 73%);
+}
+
+.learn-hero__copy {
+  align-self: start;
+  width: min(51%, 780px);
+  padding: clamp(40px, 5vw, 82px) 0 48px;
+  margin-left: clamp(32px, 5.2vw, 88px);
+  text-shadow: 0 2px 10px #141210;
+}
+
+.learn-hero h1 {
+  margin: 0 0 20px;
+  color: #ffdfae;
+  font: 600 clamp(42px, 6.02vw, 105px) / .87 var(--font-display);
+  letter-spacing: -.023em;
+}
+
+.learn-hero__description {
+  max-width: 29ch;
+  margin: 0 0 24px;
+  color: #f5f0e8;
+  font: 400 clamp(16px, 1.45vw, 22px) / 1.42 var(--font-body);
+}
+
+.learn-hero__actions {
+  display: grid;
+  grid-auto-rows: 1fr;
+  justify-items: start;
+  gap: 12px;
+  text-shadow: none;
+}
+
+.learn-hero__actions .button {
+  width: min(100%, 232px);
+}
+
+.learn-chapters {
+  background: #171410;
+  border-block: 1px solid var(--line);
+}
+
+.learn-chapters ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 14px clamp(24px, 5.2vw, 75px);
+  list-style: none;
+}
+
+.learn-chapters li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.45vw, 20px);
+  padding: 6px 10px;
+  font-size: clamp(15px, 1.4vw, 21px);
+  line-height: 1.1;
+}
+
+.learn-chapters li + li { border-inline-start: 1px solid var(--line); }
+.learn-chapters__number { color: var(--gold); font-size: 1.22em; font-weight: 700; }
+
+.learn-chapters__link {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+  min-height: 24px;
+  text-decoration: none;
+}
+
+.learn-chapters__link:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .learn-hero {
+    min-height: 0;
+    background: #141210;
+  }
+
+  .learn-hero__copy {
+    width: auto;
+    padding: 36px clamp(18px, 5.5vw, 36px) 25px;
+    margin: 0;
+  }
+
+  .learn-hero h1 { font-size: clamp(38px, 11.75vw, 79px); }
+
+  .learn-hero__scene {
+    position: relative;
+    aspect-ratio: 1.13;
+    background: linear-gradient(#141210 2%, #2d211a 60%, #23160e);
+  }
+
+  .learn-hero__scenery {
+    width: 180%;
+    mask-image: linear-gradient(transparent, #000 13%, #000 26%, transparent 53%);
+  }
+
+  .learn-hero__scene::after { display: none; }
+  .learn-hero__board { width: 111%; height: 49%; right: -5.5%; bottom: -4%; }
+  .learn-hero__cast { height: 84%; left: 50%; right: auto; bottom: 13%; transform: translateX(-50%); }
+  .learn-hero__cloth { width: 109%; left: -7%; bottom: -6.2vw; mask-image: linear-gradient(90deg, #000 20%, transparent 86%); }
+
+  .learn-chapters ol { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 12px; }
+  .learn-chapters li { justify-content: flex-start; gap: 7px; padding: 12px 8px; }
+  .learn-chapters li:nth-child(odd) { border-inline-start: 0; }
+  .learn-chapters li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+
+/* Learn board chapter */
+.learn-board {
+  position: relative;
+  isolation: isolate;
+  color: #3b291b;
+  background:
+    linear-gradient(rgb(245 232 221 / 38%), rgb(245 232 221 / 38%)),
+    #efd3a5 url('public/images/home/european-intro-paper-tile.webp') center top / 300px repeat;
+  border-block: 1px solid var(--line);
+}
+
+.learn-board:focus-visible {
+  outline-color: #851e18;
+  outline-offset: -3px;
+}
+
+.learn-board::before,
+#the-board::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url('public/images/home/european-intro-background-desktop.webp') center top / 100% auto no-repeat;
+  mask-composite: intersect;
+}
+
+.learn-board::before {
+  opacity: .46;
+  mask-image:
+    linear-gradient(90deg, #000 9%, transparent 17%, transparent 78%, #000 94%),
+    linear-gradient(#000 7%, transparent 22%);
+}
+
+#the-board::after {
+  background-position: center clamp(112px, 17vw, 250px);
+  opacity: .68;
+  mask-image:
+    linear-gradient(90deg, #000 9%, transparent 16%),
+    linear-gradient(transparent 47%, #000 62%, #000 84%, transparent 99%);
+}
+
+.learn-board__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 37fr) minmax(0, 63fr);
+  align-items: center;
+  gap: clamp(16px, 1.65vw, 26px);
+  width: min(100%, 1536px);
+  margin-inline: auto;
+  padding-block: clamp(18px, 1.65vw, 26px);
+  padding-inline: clamp(96px, 13.15vw, 202px) clamp(20px, 2.2vw, 34px);
+}
+
+#the-board .learn-board__copy {
+  align-self: start;
+  padding-top: clamp(34px, 3.7vw, 56px);
+}
+
+.learn-board__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 15px;
+  color: #851e18;
+  font: 700 clamp(12px, 1.32vw, 19px)/1.2 var(--font-interface);
+  letter-spacing: .14em;
+}
+
+.learn-board__eyebrow::after {
+  content: '';
+  flex: 1 1 28px;
+  max-width: clamp(146px, 12.7vw, 184px);
+  height: 1px;
+  background: var(--line);
+}
+
+.learn-board h2 {
+  margin: 0 0 15px;
+  color: #302015;
+  font: 600 clamp(40px, 6vw, 92px)/.9 var(--font-display);
+}
+
+.learn-board__description {
+  max-width: 34ch;
+  margin: 0;
+  font: 400 clamp(16px, 1.75vw, 26px)/1.4 var(--font-body);
+}
+
+.learn-board__art {
+  width: min(100%, 720px);
+  justify-self: center;
+}
+
+.learn-board__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 5px rgb(60 36 15 / 26%));
+}
+
+@media (max-width: 760px) {
+  .learn-board::before {
+    background-image: url('public/images/home/european-intro-background-mobile.webp');
+    opacity: .54;
+    mask-image: linear-gradient(#000 9%, transparent 30%);
+  }
+
+  #the-board::after {
+    content: none;
+    background-image: none;
+  }
+
+  .learn-board__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    max-width: 490px;
+    padding: clamp(106px, 31vw, 228px) clamp(20px, 6vw, 36px) 32px;
+  }
+
+  #the-board .learn-board__copy { padding-top: 0; }
+  .learn-board__eyebrow { font-size: 12px; }
+  .learn-board h2 { font-size: clamp(46px, 13vw, 72px); }
+  .learn-board__description { max-width: 32ch; font-size: 16px; }
 }

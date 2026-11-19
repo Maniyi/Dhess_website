@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHESS Learn hero artwork review</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-preview {
+      display: grid;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: clamp(480px, 48.5vw, 800px);
+      background: linear-gradient(160deg, #141210 38%, #302219 76%, #23160e);
+    }
+
+    .learn-preview__scene {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .learn-preview__scenery {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      mask-image: linear-gradient(#000 16%, transparent 46%);
+    }
+
+    .learn-preview__scene::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, #141210 4%, #141210ed 23%, #14121099 36%, transparent 57%);
+      pointer-events: none;
+    }
+
+    .learn-preview__board {
+      position: absolute;
+      width: 88%;
+      height: 54%;
+      right: -14%;
+      bottom: -7%;
+      filter: brightness(.87);
+    }
+
+    .learn-preview__cast {
+      position: absolute;
+      z-index: 2;
+      right: -2%;
+      bottom: 12%;
+      height: min(85%, 42vw);
+      aspect-ratio: 3 / 2;
+    }
+
+    .learn-preview__cast::before {
+      content: '';
+      position: absolute;
+      inset: 79% 12% -1% 13%;
+      background:
+        radial-gradient(ellipse 25% 21% at 26% 95%, #100b08e6 18%, transparent 100%),
+        radial-gradient(ellipse 21% 21% at 58% 76%, #100b08de 18%, transparent 100%),
+        radial-gradient(ellipse 19% 18% at 86% 43%, #100b08d9 18%, transparent 100%);
+    }
+
+    .learn-preview__pieces {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .learn-preview__cloth {
+      position: absolute;
+      z-index: 3;
+      bottom: -2.3vw;
+      left: -2%;
+      width: 75%;
+      height: auto;
+      mask-image: linear-gradient(90deg, #000 28%, transparent 73%);
+    }
+
+    .learn-preview__copy {
+      align-self: start;
+      width: min(51%, 780px);
+      padding: clamp(40px, 5vw, 82px) 0 48px;
+      margin-left: clamp(32px, 5.2vw, 88px);
+      text-shadow: 0 2px 10px #141210;
+    }
+
+    .learn-preview h1 {
+      margin: 0 0 20px;
+      color: #ffdfae;
+      font: 600 clamp(42px, 6.02vw, 105px) / .87 var(--font-display);
+      letter-spacing: -.023em;
+    }
+
+    .learn-preview__description {
+      max-width: 29ch;
+      margin: 0 0 24px;
+      color: #f5f0e8;
+      font: 400 clamp(16px, 1.45vw, 22px) / 1.42 var(--font-body);
+    }
+
+    .learn-preview__actions {
+      display: grid;
+      justify-items: start;
+      gap: 12px;
+      text-shadow: none;
+    }
+
+    .learn-preview__actions .button {
+      width: min(100%, 232px);
+    }
+
+    .learn-preview__chapters {
+      background: #171410;
+      border-block: 1px solid var(--line);
+    }
+
+    .learn-preview__chapters ol {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: min(100%, 1440px);
+      margin: 0 auto;
+      padding: 14px clamp(24px, 5.2vw, 75px);
+      list-style: none;
+    }
+
+    .learn-preview__chapters li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(8px, 1.45vw, 20px);
+      padding: 6px 10px;
+      font-size: clamp(15px, 1.4vw, 21px);
+      line-height: 1.1;
+    }
+
+    .learn-preview__chapters li + li { border-inline-start: 1px solid var(--line); }
+    .learn-preview__chapters strong { color: var(--gold); font-size: 1.22em; }
+
+    @media (max-width: 700px) {
+      .learn-preview {
+        min-height: 0;
+        background: #141210;
+      }
+
+      .learn-preview__copy {
+        width: auto;
+        padding: 36px clamp(18px, 5.5vw, 36px) 25px;
+        margin: 0;
+      }
+
+      .learn-preview h1 { font-size: clamp(38px, 11.75vw, 79px); }
+
+      .learn-preview__scene {
+        position: relative;
+        aspect-ratio: 1.13;
+        background: linear-gradient(#141210 2%, #2d211a 60%, #23160e);
+      }
+
+      .learn-preview__scenery {
+        width: 180%;
+        mask-image: linear-gradient(transparent, #000 13%, #000 26%, transparent 53%);
+      }
+
+      .learn-preview__scene::after { display: none; }
+      .learn-preview__board { width: 111%; height: 49%; right: -5.5%; bottom: -4%; }
+      .learn-preview__cast { height: 84%; left: 50%; right: auto; bottom: 13%; transform: translateX(-50%); }
+      .learn-preview__cloth { width: 109%; left: -7%; bottom: -6.2vw; mask-image: linear-gradient(90deg, #000 20%, transparent 86%); }
+
+      .learn-preview__chapters ol { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 12px; }
+      .learn-preview__chapters li { justify-content: flex-start; gap: 7px; padding: 12px 8px; }
+      .learn-preview__chapters li:nth-child(odd) { border-inline-start: 0; }
+      .learn-preview__chapters li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="learn-preview" aria-labelledby="learn-title">
+      <div class="learn-preview__copy">
+        <p class="eyebrow">YOUR FIRST MOVE STARTS HERE</p>
+        <h1 id="learn-title">Learn the realm.<br>Make your move.</h1>
+        <p class="learn-preview__description">Get to know the board, discover the pieces, and prepare for your first game of Dhess.</p>
+        <div class="learn-preview__actions">
+          <span class="button button-gold pending-action">Explore the basics <small>Unavailable</small></span>
+          <span class="button button-outline pending-action">View the rulebook <small>Unavailable</small></span>
+        </div>
+      </div>
+      <div class="learn-preview__scene" aria-hidden="true">
+        <img class="learn-preview__scenery" src="../../../public/images/home/hero-background-desktop.webp" width="1672" height="941" alt="">
+        <img class="learn-preview__board" src="../../../public/images/home/european-intro-board.webp" width="2000" height="1000" alt="">
+        <div class="learn-preview__cast">
+          <img class="learn-preview__pieces" src="../../../public/images/home/next-move-pieces.webp" width="1536" height="1024" alt="">
+        </div>
+        <img class="learn-preview__cloth" src="../../../public/images/shared/burgundy-velvet.webp" width="2172" height="724" alt="">
+      </div>
+      <p class="sr-only">An ivory king, hooded figure and horse stand on an illustrative board, with a mountain castle in the distance.</p>
+    </section>
+    <section class="learn-preview__chapters" aria-label="Chapter strip artwork preview">
+      <ol>
+        <li><strong>01</strong> The board</li>
+        <li><strong>02</strong> The pieces</li>
+        <li><strong>03</strong> Getting started</li>
+        <li><strong>04</strong> Rulebook</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

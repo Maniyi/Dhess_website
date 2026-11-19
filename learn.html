@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141210">
+    <meta name="description" content="Get to know the board, discover the pieces, and prepare for your first game of DHESS: European Edition.">
+    <title>Learn to play DHESS: European Edition</title>
+    <link rel="icon" href="data:,">
+    <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=m08-board">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="DHESS: European Edition, home">
+          <span class="brand-name">DHESS</span>
+          <span class="brand-edition">✦ EUROPEAN EDITION ✦</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+          <a class="nav-link" href="./">Home</a>
+          <a class="nav-link is-active" href="learn.html" aria-current="page">Learn</a>
+          <span class="nav-link pending-action">Shop <small>Unavailable</small></span>
+          <span class="nav-link pending-action">About <small>Unavailable</small></span>
+          <span class="button button-gold header-cta pending-action">Shop the game <small>Unavailable</small></span>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="learn-hero" aria-labelledby="learn-title">
+        <div class="learn-hero__copy">
+          <p class="eyebrow">YOUR FIRST MOVE STARTS HERE</p>
+          <h1 id="learn-title">Learn the realm.<br>Make your move.</h1>
+          <p class="learn-hero__description">Get to know the board, discover the pieces, and prepare for your first game of Dhess.</p>
+          <div class="learn-hero__actions">
+            <a class="button button-gold" href="#the-board">Explore the basics</a>
+            <span class="button button-outline pending-action">View the rulebook <small>Unavailable</small></span>
+          </div>
+        </div>
+        <div class="learn-hero__scene" aria-hidden="true">
+          <img class="learn-hero__scenery" src="public/images/home/hero-background-desktop.webp" width="1672" height="941" fetchpriority="high" alt="">
+          <img class="learn-hero__board" src="public/images/home/european-intro-board.webp" width="2000" height="1000" alt="">
+          <div class="learn-hero__cast">
+            <img class="learn-hero__pieces" src="public/images/home/next-move-pieces.webp" width="1536" height="1024" alt="">
+          </div>
+          <img class="learn-hero__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" alt="">
+        </div>
+        <p class="sr-only">An ivory king, hooded figure and horse stand on an illustrative board, with a mountain castle in the distance.</p>
+      </section>
+
+      <nav class="learn-chapters" aria-label="Learn chapters">
+        <ol role="list">
+          <li>
+            <a class="learn-chapters__link" href="#the-board">
+              <span class="learn-chapters__number">01</span>
+              <span>The board</span>
+            </a>
+          </li>
+          <li>
+            <span class="learn-chapters__number">02</span>
+            <span class="pending-action">The pieces <small>Unavailable</small></span>
+          </li>
+          <li>
+            <span class="learn-chapters__number">03</span>
+            <span class="pending-action">Getting started <small>Unavailable</small></span>
+          </li>
+          <li>
+            <span class="learn-chapters__number">04</span>
+            <span class="pending-action">Rulebook <small>Unavailable</small></span>
+          </li>
+        </ol>
+      </nav>
+
+      <section class="learn-board" id="the-board" tabindex="-1" aria-labelledby="board-title">
+        <div class="learn-board__inner">
+          <div class="learn-board__copy">
+            <p class="learn-board__eyebrow">01 / THE BOARD</p>
+            <h2 id="board-title">Explore a<br>wider world.</h2>
+            <p class="learn-board__description">A 10 × 10 board brings European landmarks and resources to the table.</p>
+          </div>
+          <div class="learn-board__art">
+            <img src="public/images/learn/learn-board-illustrated.webp" width="1360" height="1156" loading="lazy" decoding="async" alt="Illustrated 10 × 10 board with European landmarks, colorful resource motifs, and a gilded walnut frame">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <a class="brand site-footer__brand" href="./" aria-label="DHESS: European Edition, home">
+          <span class="brand-name">DHESS</span>
+          <span class="brand-edition">✦ EUROPEAN EDITION ✦</span>
+        </a>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="./">Home</a>
+          <a href="learn.html" aria-current="page">Learn</a>
+          <span class="pending-action">Shop <small>Unavailable</small></span>
+          <span class="pending-action">About <small>Unavailable</small></span>
+        </nav>
+        <p class="site-footer__tagline">Go beyond chess.</p>
+      </div>
+    </footer>
+  </body>
+</html>
