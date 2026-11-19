@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>M04A transparent edge check</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      figure { min-width: 0; margin: 0; min-height: 620px; padding: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px; }
+      figure:first-child { background: #171513; color: #f8e5c5; }
+      figure:last-child { background: #f4ead8; color: #392c20; }
+      img { display: block; width: 100%; max-width: 560px; height: auto; }
+      figcaption { font: 18px Georgia, serif; }
+      @media (max-width: 700px) { body { grid-template-columns: 1fr; } figure { min-height: 430px; } }
+    </style>
+  </head>
+  <body>
+    <figure><img src="../../../public/images/home/next-move-pieces.webp" width="1536" height="1024" alt=""><figcaption>Charcoal</figcaption></figure>
+    <figure><img src="../../../public/images/home/next-move-pieces.webp" width="1536" height="1024" alt=""><figcaption>Warm ivory</figcaption></figure>
+  </body>
+</html>
