@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product section — artwork review</title>
+  <style>
+    @font-face { font-family: 'Cormorant Garamond'; src: url('../../../public/fonts/CormorantGaramond-600-latin.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+    :root { --ivory: #f8e5c5; --gold: #f0b54e; --light: #ffe0a1; --display: 'Cormorant Garamond', Georgia, serif; --interface: Georgia, serif; --body: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #141210; color: var(--ivory); }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid var(--light); outline-offset: 4px; }
+    .product { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(485px, 41vw, 590px); border-block: 1px solid #ad7939; background: #280d0b url('../../../public/images/home/product-background.webp') center / cover no-repeat; }
+    .inner { position: relative; z-index: 1; width: min(100%, 1536px); min-height: inherit; margin: auto; display: grid; grid-template-columns: minmax(0, 62%) minmax(0, 38%); align-items: center; }
+    .box { position: relative; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; padding: 22px 0 14px clamp(10px, 2vw, 30px); }
+    .box img { display: block; width: min(100%, 870px); height: auto; filter: drop-shadow(10px 17px 12px rgba(0,0,0,.5)); }
+    .copy { padding: 45px clamp(24px, 5vw, 76px) 55px clamp(22px, 3vw, 45px); }
+    .eyebrow { width: max-content; max-width: 100%; margin: 0 0 24px; padding-bottom: 9px; border-bottom: 1px solid #c0904f; color: var(--light); font: 400 clamp(13px, 1.05vw, 16px)/1.2 var(--interface); letter-spacing: .2em; white-space: nowrap; }
+    h1 { max-width: 530px; margin: 0 0 27px; color: #ffdfae; font: 600 clamp(57px, 5.1vw, 78px)/.85 var(--display); letter-spacing: -.025em; text-shadow: 0 2px 8px #0008; }
+    .action { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 8px 29px; border: 2px solid var(--gold); border-radius: 4px; color: #23160a; background: linear-gradient(#ffe6a8 0%, #f5bd58 48%, #c37a22 100%); box-shadow: inset 0 1px #fff0c8, 0 3px 0 #5b3514; font: 400 clamp(19px, 1.6vw, 24px)/1.2 var(--interface); }
+    .support { margin: 20px 0 0; color: #e8cba5; font: italic 400 clamp(15px, 1.2vw, 18px)/1.35 var(--interface); }
+    .cloth { position: absolute; z-index: 2; left: 0; bottom: -10vw; display: block; width: 100%; height: auto; pointer-events: none; }
+    @media (max-width: 700px) {
+      .product { min-height: 0; background-position: 35% center; }
+      .inner { display: flex; flex-direction: column; min-height: 0; }
+      .copy { order: 0; align-self: stretch; padding: 39px 24px 5px; }
+      .eyebrow { margin-bottom: 20px; font-size: clamp(11px, 3vw, 13px); letter-spacing: .17em; }
+      h1 { max-width: 480px; margin-bottom: 23px; font-size: clamp(54px, 13.3vw, 68px); line-height: .87; }
+      .action { min-height: 47px; font-size: 19px; }
+      .support { margin-top: 16px; font-size: 15px; }
+      .box { order: 1; align-self: stretch; padding: 16px 12px 58px; }
+      .box img { width: 100%; max-width: 550px; }
+      .cloth { bottom: -4px; }
+    }
+    @media (max-width: 350px) {
+      .copy { padding-inline: 19px; }
+      h1 { font-size: 50px; }
+      .eyebrow { font-size: 11px; letter-spacing: .13em; }
+    }
+  </style>
+</head>
+<body>
+  <section class="product" aria-labelledby="product-title">
+    <div class="inner">
+      <div class="box"><img src="../../../public/images/home/product-box-concept.webp" width="1563" height="1006" alt="Concept DHESS European Edition game box with the supplied illustrated front artwork"></div>
+      <div class="copy">
+        <p class="eyebrow">DHESS · EUROPEAN EDITION</p>
+        <h1 id="product-title">Bring the realm to your table.</h1>
+        <button class="action" type="button" aria-disabled="true" title="Shop destination coming soon">Shop the game ↗</button>
+        <p class="support">Purchase through our retail partner.</p>
+      </div>
+    </div>
+    <img class="cloth" src="../../../public/images/shared/burgundy-velvet.webp" width="2172" height="724" alt="" aria-hidden="true">
+  </section>
+</body>
+</html>
