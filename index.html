@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#141210">
-    <meta name="description" content="Discover Dhess: European Edition. A world of strategy, resources, and possibility.">
+    <meta name="description" content="Discover DHESS: European Edition. A world of strategy, resources, and possibility.">
     <title>DHESS: European Edition — Go beyond chess</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="preload" as="image" href="public/images/home/hero-background-desktop.webp" media="(min-width: 701px)">
-    <link rel="preload" as="image" href="public/images/home/hero-background-mobile.webp" media="(max-width: 700px)">
-    <link rel="stylesheet" href="styles.css?v=m05b">
+    <link rel="preload" as="image" href="public/images/home/hero-background-desktop.webp" media="(width > 700px)" fetchpriority="high">
+    <link rel="preload" as="image" href="public/images/home/hero-background-mobile.webp" media="(width <= 700px)" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=m06">
     <script src="script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="./" aria-label="DHESS: European Edition, home">
@@ -27,21 +28,17 @@
 
         <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
           <a class="nav-link is-active" href="./" aria-current="page">Home</a>
-          <span class="nav-link nav-pending" aria-label="Learn, coming soon">Learn</span>
-          <span class="nav-link nav-pending" aria-label="Shop, coming soon">Shop</span>
-          <span class="nav-link nav-pending" aria-label="About, coming soon">About</span>
-          <button class="button button-gold header-cta" type="button" disabled title="Shop destination coming soon">Shop the game ↗</button>
+          <span class="nav-link pending-action">Learn <small>Unavailable</small></span>
+          <span class="nav-link pending-action">Shop <small>Unavailable</small></span>
+          <span class="nav-link pending-action">About <small>Unavailable</small></span>
+          <span class="button button-gold header-cta pending-action">Shop the game <small>Unavailable</small></span>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-scene" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 700px)" srcset="public/images/home/hero-background-mobile.webp">
-            <img class="scene-background" src="public/images/home/hero-background-desktop.webp" width="1672" height="941" alt="" fetchpriority="high">
-          </picture>
           <div class="board-assembly">
             <img class="board-shadow" src="public/images/home/hero-board-contact-shadow.webp" width="1672" height="941" alt="">
             <img class="board-image" src="public/images/home/hero-board-provisional.webp" width="1320" height="840" alt="">
@@ -53,13 +50,13 @@
           <p class="hero-description">Discover Dhess: European Edition.<br>A world of strategy, resources, and possibility.</p>
           <div class="hero-actions">
             <a class="button button-gold" href="#game-facts">Explore the game</a>
-            <button class="button button-outline" type="button" disabled title="Learn destination coming soon">Learn to play</button>
+            <span class="button button-outline pending-action">Learn to play <small>Unavailable</small></span>
           </div>
         </div>
         <p class="sr-only">The artwork shows an illustrated European landscape, a strategy board, and two opposing sets of sculpted game pieces.</p>
       </section>
 
-      <section class="game-facts" id="game-facts" aria-label="Game facts">
+      <section class="game-facts" id="game-facts" tabindex="-1" aria-label="Game facts">
         <ul class="facts-list">
           <li>
             <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="18" cy="15" r="6"/><circle cx="34" cy="17" r="5"/><path d="M5 38v-4c0-6 5-10 13-10s13 4 13 10v4H5Zm29-13c5 0 9 4 9 9v4h-8"/></svg>
@@ -78,8 +75,8 @@
 
       <section class="european-intro" aria-labelledby="european-intro-title">
         <picture class="european-intro__plate" aria-hidden="true">
-          <source media="(max-width: 700px)" srcset="public/images/home/european-intro-background-mobile.webp">
-          <img src="public/images/home/european-intro-background-desktop.webp" width="1672" height="941" alt="">
+          <source media="(width <= 700px)" srcset="public/images/home/european-intro-background-mobile.webp" width="941" height="1672">
+          <img src="public/images/home/european-intro-background-desktop.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
         </picture>
         <div class="european-intro__inner">
           <header class="european-intro__heading">
@@ -122,8 +119,7 @@
             <span class="next-move__ornament" aria-hidden="true">⚜</span>
             <h2 id="next-move-title">Meet your<br>next move.</h2>
             <p>Discover the pieces and explore the board before your first game.</p>
-            <button class="next-move__link" type="button" aria-disabled="true" aria-describedby="next-move-pending">Learn how to play →</button>
-            <span class="sr-only" id="next-move-pending">Learning page coming soon.</span>
+            <span class="next-move__link pending-action">Learn how to play <small>Unavailable</small></span>
           </div>
         </div>
         <img class="next-move__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" loading="lazy" decoding="async" alt="" aria-hidden="true">
@@ -138,9 +134,7 @@
           <div class="product-section__copy">
             <p class="product-section__eyebrow">DHESS · EUROPEAN EDITION</p>
             <h2 id="product-title">Bring the realm to your table.</h2>
-            <button class="button button-gold product-section__action" type="button" aria-disabled="true" aria-describedby="product-shop-pending">Shop the game ↗</button>
-            <span class="sr-only" id="product-shop-pending">Shop destination coming soon.</span>
-            <p class="product-section__support">Purchase through our retail partner.</p>
+            <span class="button button-gold product-section__action pending-action">Shop the game <small>Unavailable</small></span>
           </div>
         </div>
         <img class="product-section__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" loading="lazy" decoding="async" alt="" aria-hidden="true">
@@ -155,9 +149,9 @@
         </a>
         <nav class="site-footer__nav" aria-label="Footer navigation">
           <a href="./" aria-current="page">Home</a>
-          <span aria-label="Learn, coming soon">Learn</span>
-          <span aria-label="Shop, coming soon">Shop</span>
-          <span aria-label="About, coming soon">About</span>
+          <span class="pending-action">Learn <small>Unavailable</small></span>
+          <span class="pending-action">Shop <small>Unavailable</small></span>
+          <span class="pending-action">About <small>Unavailable</small></span>
         </nav>
         <p class="site-footer__tagline">Go beyond chess.</p>
       </div>

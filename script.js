@@ -22,6 +22,10 @@ document.addEventListener('click', (event) => {
   if (!event.target.closest('.site-header')) setMenuOpen(false);
 });
 
-window.matchMedia('(min-width: 701px)').addEventListener('change', (event) => {
+document.addEventListener('focusin', (event) => {
+  if (!event.target.closest('.site-header')) setMenuOpen(false);
+});
+
+window.matchMedia('(width > 700px)').addEventListener('change', (event) => {
   if (event.matches) setMenuOpen(false);
 });

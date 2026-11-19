@@ -1,0 +1,17 @@
+# Homepage pending items
+
+Reviewed 19 November 2026 against the local Milestone 6 homepage and the artwork guides. Each owner decision below remains open.
+
+| Item | Verified in the workspace | Owner decision or input needed |
+| --- | --- | --- |
+| Learn | Header and footer Learn, hero “Learn to play,” and learning-section “Learn how to play” display “Unavailable.” The repository has no Learn destination. | Supply the approved Learn destination and confirm whether the two learning calls to action point to the same place. |
+| Shop | Header and footer Shop and both “Shop the game” placements display “Unavailable.” The repository has no Shop destination. | Confirm where the navigation item and purchase calls to action should lead. |
+| About | Header and footer About display “Unavailable.” The repository has no About destination. | Supply the approved About destination. |
+| Retailer and purchase copy | The M05A reference includes “Purchase through our retail partner.” The repository has no confirmed retailer or purchase URL. M06 removed the line from the homepage. | Confirm the retailer, provide the approved URL, and approve the statement or replacement copy. |
+| Board and resources | The hero renders a provisional board. The introduction uses an approved 10×10 concept illustration. Reference images are watermarked, and the art guides identify differences in labels, icons, and detail. | Confirm final board layout, paths, landmarks, resource positions, materials, and approved usage rights. Supply clean board art or product photography as available. Confirm any rules implied by the resource descriptions. |
+| Pieces and game facts | The homepage uses approved concept sculpts and the existing age, player-count, and duration copy. The available piece references are limited render views. | Verify exact piece lineup, details and finish using approved views or photos. Confirm the existing product facts against the final game. |
+| Packaging | The 3D concept box is based on supplied flat front art. The spine and thickness are inferred, and small print and baked claims remain unverified. | Supply approved print art, dieline, or physical photography. Confirm the packaging details and claims before presenting the render as an exact product depiction. |
+| Brand assets | Header and footer use the temporary text wordmark. The favicon is currently blank. | Supply an approved wordmark or logo, any emblem, and an approved favicon asset. |
+| Publishing | The homepage has an English language declaration, title, description, and viewport metadata. The repository provides no confirmed production URL, social handles, or approved share image. | Confirm the production domain and canonical homepage URL. Supply approved social handles and share artwork if the site will use them. Supply verified product information if structured product data is later required. |
+
+The approved section artwork is the visual reference for the homepage. Final product specifications and public claims require owner confirmation. See the [hero](design/hero-assets.md), [introduction](design/european-intro-assets.md), [piece-group](design/next-move-assets.md), and [packaging](design/product-section-assets.md) guides for the source limitations.
