@@ -8,7 +8,7 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m08-board">
+    <link rel="stylesheet" href="styles.css?v=m09-pieces">
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -65,8 +65,10 @@
             </a>
           </li>
           <li>
-            <span class="learn-chapters__number">02</span>
-            <span class="pending-action">The pieces <small>Unavailable</small></span>
+            <a class="learn-chapters__link" href="#the-pieces">
+              <span class="learn-chapters__number">02</span>
+              <span>The pieces</span>
+            </a>
           </li>
           <li>
             <span class="learn-chapters__number">03</span>
@@ -90,6 +92,64 @@
             <img src="public/images/learn/learn-board-illustrated.webp" width="1360" height="1156" loading="lazy" decoding="async" alt="Illustrated 10 × 10 board with European landmarks, colorful resource motifs, and a gilded walnut frame">
           </div>
         </div>
+      </section>
+
+      <section class="learn-pieces" id="the-pieces" tabindex="-1" aria-labelledby="pieces-title">
+        <div class="learn-pieces__inner">
+          <header class="learn-pieces__copy">
+            <p class="learn-pieces__eyebrow">02 / THE PIECES</p>
+            <h2 id="pieces-title">Meet the pieces.</h2>
+            <p class="learn-pieces__description">Discover the cast of the European Edition.</p>
+          </header>
+          <ul class="learn-pieces__gallery" role="list">
+            <li>
+              <div class="learn-pieces__stage">
+                <img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">King</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.96">
+                <img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Queen</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.99">
+                <img src="public/images/learn/pieces/bishop.webp" width="396" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Bishop</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.90">
+                <img src="public/images/learn/pieces/rook.webp" width="429" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Rook</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.95">
+                <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Mystic</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.98">
+                <img src="public/images/learn/pieces/knight.webp" width="423" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Knight</span>
+            </li>
+            <li>
+              <div class="learn-pieces__stage" style="--piece-scale: 0.88">
+                <img src="public/images/learn/pieces/pawn.webp" width="389" height="736" loading="lazy" decoding="async" alt="">
+              </div>
+              <span class="learn-pieces__name">Pawn</span>
+            </li>
+          </ul>
+          <div class="learn-pieces__guide">
+            <span class="pending-action">Explore the piece guide <span aria-hidden="true">→</span> <small>Unavailable</small></span>
+          </div>
+        </div>
+        <img class="learn-pieces__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" loading="lazy" decoding="async" alt="">
       </section>
     </main>
 
