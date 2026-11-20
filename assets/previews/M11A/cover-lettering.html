@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DHESS rulebook cover lettering source</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+      html, body { background: transparent; }
+      .cover { position: relative; width: min(100%, 1448px); container-type: inline-size; }
+      .cover img { display: block; width: 100%; height: auto; }
+      .cover__foil {
+        position: absolute;
+        top: 45.8%;
+        left: 54.4%;
+        transform: translate(-50%, -50%) matrix(1, -.039, .19, 1, 0, 0);
+        text-align: center;
+      }
+      .cover__foil .brand-name,
+      .cover__foil .brand-edition {
+        color: #ecc276;
+        text-shadow: 0 1px 0 #f7d89b, 0 3px 1px #5d3515;
+      }
+      .cover__foil .brand-name { font-size: 11.4cqw; }
+      .cover__foil .brand-edition { margin-top: 1.1cqw; font-size: 2.15cqw; }
+    </style>
+  </head>
+  <body>
+    <main class="cover">
+      <img src="../../../assets/generated/learn/rulebook-cover-unlettered-master.png" width="1448" height="1086" alt="Unlettered concept of a dark leather book with a gold border">
+      <div class="cover__foil">
+        <span class="brand-name">DHESS</span>
+        <span class="brand-edition">✦ EUROPEAN EDITION ✦</span>
+      </div>
+    </main>
+  </body>
+</html>

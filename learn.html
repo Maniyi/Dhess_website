@@ -8,7 +8,7 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m09-pieces">
+    <link rel="stylesheet" href="styles.css?v=m12">
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -39,14 +39,17 @@
         <div class="learn-hero__copy">
           <p class="eyebrow">YOUR FIRST MOVE STARTS HERE</p>
           <h1 id="learn-title">Learn the realm.<br>Make your move.</h1>
-          <p class="learn-hero__description">Get to know the board, discover the pieces, and prepare for your first game of Dhess.</p>
+          <p class="learn-hero__description">Get to know the board, discover the pieces, and prepare for your first game of DHESS.</p>
           <div class="learn-hero__actions">
             <a class="button button-gold" href="#the-board">Explore the basics</a>
-            <span class="button button-outline pending-action">View the rulebook <small>Unavailable</small></span>
+            <a class="button button-outline" href="#rulebook">Explore the rulebook</a>
           </div>
         </div>
         <div class="learn-hero__scene" aria-hidden="true">
-          <img class="learn-hero__scenery" src="public/images/home/hero-background-desktop.webp" width="1672" height="941" fetchpriority="high" alt="">
+          <picture>
+            <source media="(max-width: 620px)" srcset="public/images/learn/hero-scenery-mobile.webp" width="932" height="500">
+            <img class="learn-hero__scenery" src="public/images/home/hero-background-desktop.webp" width="1672" height="941" fetchpriority="high" alt="">
+          </picture>
           <img class="learn-hero__board" src="public/images/home/european-intro-board.webp" width="2000" height="1000" alt="">
           <div class="learn-hero__cast">
             <img class="learn-hero__pieces" src="public/images/home/next-move-pieces.webp" width="1536" height="1024" alt="">
@@ -71,12 +74,16 @@
             </a>
           </li>
           <li>
-            <span class="learn-chapters__number">03</span>
-            <span class="pending-action">Getting started <small>Unavailable</small></span>
+            <a class="learn-chapters__link" href="#getting-started">
+              <span class="learn-chapters__number">03</span>
+              <span>Getting started</span>
+            </a>
           </li>
           <li>
-            <span class="learn-chapters__number">04</span>
-            <span class="pending-action">Rulebook <small>Unavailable</small></span>
+            <a class="learn-chapters__link" href="#rulebook">
+              <span class="learn-chapters__number">04</span>
+              <span>Rulebook</span>
+            </a>
           </li>
         </ol>
       </nav>
@@ -146,10 +153,73 @@
             </li>
           </ul>
           <div class="learn-pieces__guide">
-            <span class="pending-action">Explore the piece guide <span aria-hidden="true">→</span> <small>Unavailable</small></span>
+            <span class="pending-action">Explore the piece guide <small>Unavailable</small></span>
           </div>
         </div>
         <img class="learn-pieces__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" loading="lazy" decoding="async" alt="">
+      </section>
+
+      <section class="getting-started" id="getting-started" tabindex="-1" aria-labelledby="getting-started-title">
+        <div class="getting-started__inner">
+          <p class="getting-started__eyebrow">03 / GETTING STARTED</p>
+          <h2 id="getting-started-title">Find your way into the game.</h2>
+          <div class="getting-started__cards">
+            <article class="getting-started__card">
+              <div class="getting-started__art">
+                <img src="public/images/learn/getting-started-board.webp" width="960" height="600" loading="lazy" decoding="async" alt="Detail of the gilded board with European landmarks and colorful resource motifs">
+              </div>
+              <h3>Set up the board</h3>
+              <p>Start with the setup guide.</p>
+              <span class="getting-started__action pending-action">View setup guide <small>Unavailable</small></span>
+            </article>
+            <article class="getting-started__card">
+              <div class="getting-started__art getting-started__cast" role="img" aria-label="Ivory queen and rook standing on a walnut tabletop">
+                <div class="getting-started__figure">
+                  <img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" decoding="async" alt="">
+                </div>
+                <div class="getting-started__figure">
+                  <img src="public/images/learn/pieces/rook.webp" width="429" height="736" loading="lazy" decoding="async" alt="">
+                </div>
+              </div>
+              <h3>Understand the pieces</h3>
+              <p>Get familiar with the full cast.</p>
+              <span class="getting-started__action pending-action">View piece guide <small>Unavailable</small></span>
+            </article>
+            <article class="getting-started__card">
+              <div class="getting-started__art">
+                <img src="public/images/learn/getting-started-book.webp" width="960" height="600" loading="lazy" decoding="async" alt="Open antique atlas with engravings of a hilltop castle and stone bridge">
+              </div>
+              <h3>Follow the rules</h3>
+              <p>Keep the rulebook close at hand.</p>
+              <span class="getting-started__action pending-action">View the rulebook <small>Unavailable</small></span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="learn-rulebook" id="rulebook" tabindex="-1" aria-labelledby="rulebook-title">
+        <div class="learn-rulebook__inner">
+          <div class="learn-rulebook__copy">
+            <span class="learn-rulebook__ornament" aria-hidden="true">⚜</span>
+            <p class="learn-rulebook__eyebrow">04 / THE RULEBOOK</p>
+            <h2 id="rulebook-title">Your guide at the table.</h2>
+            <p class="learn-rulebook__description">Refer to the DHESS European Edition rulebook as you learn.</p>
+            <span class="button button-gold pending-action">View the rulebook <small>Unavailable</small></span>
+          </div>
+          <div class="learn-rulebook__art">
+            <img class="learn-rulebook__book" src="public/images/learn/rulebook-cover-concept.webp" width="960" height="742" loading="lazy" decoding="async" alt="Closed dark leather concept book with gold tooling and the words DHESS European Edition">
+          </div>
+        </div>
+        <img class="learn-rulebook__cloth" src="public/images/shared/burgundy-velvet.webp" width="2172" height="724" loading="lazy" decoding="async" alt="">
+      </section>
+
+      <section class="learn-purchase" aria-labelledby="purchase-title">
+        <div class="learn-purchase__inner">
+          <h2 id="purchase-title">Ready for your first game?</h2>
+          <div class="learn-purchase__action">
+            <span class="button button-gold pending-action">Shop the game <small>Unavailable</small></span>
+          </div>
+        </div>
       </section>
     </main>
 

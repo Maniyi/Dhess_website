@@ -1,0 +1,181 @@
+/* Preview-only excerpt of the preceding gallery edge. */
+.preview-gallery-edge { border-block-start: 0; }
+.preview-gallery-edge .learn-pieces__inner { padding-block-start: 16px; }
+.preview-gallery-edge .learn-pieces__guide { margin-top: 0; }
+
+.getting-started {
+  position: relative;
+  isolation: isolate;
+  color: #3b291b;
+  background:
+    linear-gradient(rgb(255 242 218 / 47%), rgb(255 242 218 / 47%)),
+    #efd3a5 url('../../../public/images/home/european-intro-paper-tile.webp') center top / 300px repeat;
+  border-block: 1px solid var(--line);
+}
+
+.getting-started::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url('../../../public/images/home/european-intro-background-desktop.webp') center top / 100% auto no-repeat;
+  opacity: .52;
+  mask-image:
+    linear-gradient(90deg, #000, transparent 14%, transparent 79%, #000 97%),
+    linear-gradient(#000, transparent 43%);
+  mask-composite: intersect;
+}
+
+.getting-started__inner {
+  width: min(100%, 1536px);
+  margin-inline: auto;
+  padding: clamp(30px, 3vw, 46px) clamp(32px, 6.1vw, 94px) clamp(34px, 3.2vw, 49px);
+}
+
+.getting-started__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.3vw, 19px);
+  margin: 0 0 9px;
+  color: #851e18;
+  font: 700 clamp(12px, 1.32vw, 19px)/1.25 var(--font-interface);
+  letter-spacing: .14em;
+}
+
+.getting-started__eyebrow::after {
+  content: '';
+  flex: 1 1 28px;
+  max-width: clamp(72px, 14.8vw, 214px);
+  height: 1px;
+  background: var(--line);
+}
+
+.getting-started h2 {
+  margin: 0 0 clamp(19px, 2.3vw, 33px);
+  color: #302015;
+  font: 600 clamp(42px, 5.45vw, 80px)/.94 var(--font-display);
+  letter-spacing: -.022em;
+}
+
+.getting-started__cards {
+  --gutter: clamp(22px, 3.55vw, 52px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+.getting-started__card { position: relative; }
+
+.getting-started__card + .getting-started__card::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: calc(var(--gutter) / -2);
+  width: 1px;
+  background: rgb(121 90 49 / 43%);
+}
+
+.getting-started__art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 8 / 5;
+  background: #392417;
+  box-shadow: 0 0 0 1px rgb(53 31 17 / 19%);
+}
+
+.getting-started__art > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.getting-started__cast {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 11%;
+  padding: 0 2% 1.6% 0;
+  background: #2b211a url('../../../public/images/learn/getting-started-pieces-background.webp') center / cover no-repeat;
+}
+
+.getting-started__figure {
+  position: relative;
+  isolation: isolate;
+  height: 98%;
+}
+
+.getting-started__figure:last-child { height: 88%; }
+
+.getting-started__figure::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: auto -15% -4% -15%;
+  height: 14%;
+  background: radial-gradient(ellipse, #100905 17%, transparent 71%);
+}
+
+.getting-started__figure img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.getting-started__card h3 {
+  margin: 10px 0 4px;
+  color: #851e18;
+  font: 600 clamp(24px, 2.7vw, 40px)/1.02 var(--font-display);
+  letter-spacing: -.018em;
+}
+
+.getting-started__card p {
+  margin: 0 0 9px;
+  font: 400 clamp(16px, 1.35vw, 20px)/1.35 var(--font-body);
+}
+
+.getting-started__action {
+  display: inline-block;
+  color: #553619;
+  font: 700 clamp(16px, 1.36vw, 20px)/1.2 var(--font-interface);
+}
+
+.getting-started__action small {
+  color: #654b35;
+  font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .getting-started::before {
+    background-image: url('../../../public/images/home/european-intro-background-mobile.webp');
+    opacity: .34;
+    mask-image:
+      linear-gradient(90deg, #000, transparent 14%, transparent 73%, #000 99%),
+      linear-gradient(#000, transparent 180px);
+  }
+
+  .getting-started__inner {
+    max-width: 490px;
+    padding: 28px clamp(18px, 6vw, 36px) 32px;
+  }
+
+  .getting-started h2 {
+    max-width: 12ch;
+    font-size: clamp(40px, 10.6vw, 58px);
+  }
+
+  .getting-started__cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .getting-started__card + .getting-started__card {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(121 90 49 / 43%);
+  }
+
+  .getting-started__card + .getting-started__card::before { content: none; }
+  .getting-started__card h3 { font-size: clamp(30px, 8vw, 40px); }
+}

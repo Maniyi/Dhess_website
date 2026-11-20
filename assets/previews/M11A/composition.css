@@ -1,0 +1,174 @@
+.learn-rulebook {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 22%, rgb(53 11 13 / 53%) 60%, rgb(54 11 13 / 68%)),
+    #380e11 url('../../../public/images/home/product-background.webp') center 41% / cover no-repeat;
+}
+
+.learn-rulebook__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 43%) minmax(0, 57%);
+  align-items: center;
+  width: min(100%, 1536px);
+  margin-inline: auto;
+  padding-inline: clamp(26px, 5vw, 76px);
+}
+
+.learn-rulebook__copy {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  padding: 12px 0 12px clamp(27px, 4vw, 58px);
+}
+
+.learn-rulebook__copy::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: linear-gradient(var(--line), var(--gold) 44%, transparent 44% 56%, var(--gold) 56%, var(--line));
+}
+
+.learn-rulebook__ornament {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font: 400 26px/1 var(--font-interface);
+}
+
+.learn-rulebook__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.3vw, 19px);
+  margin: 0 0 10px;
+  color: var(--gold-light);
+  font: 700 clamp(12px, 1.3vw, 18px)/1.25 var(--font-interface);
+  letter-spacing: .14em;
+}
+
+.learn-rulebook__eyebrow::after {
+  content: '';
+  flex: 1 1 24px;
+  max-width: clamp(64px, 10vw, 132px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), var(--gold));
+}
+
+.learn-rulebook h2,
+.learn-purchase h2 {
+  margin: 0;
+  color: var(--gold-light);
+  font: 600 clamp(46px, 5vw, 77px)/.92 var(--font-display);
+  letter-spacing: -.024em;
+}
+
+.learn-rulebook__description {
+  max-width: 36ch;
+  margin: 13px 0 18px;
+  color: var(--cream);
+  font: 400 clamp(16px, 1.4vw, 20px)/1.4 var(--font-body);
+}
+
+.learn-rulebook .button,
+.learn-purchase .button {
+  min-width: min(100%, 207px);
+  padding-inline: 22px;
+}
+
+.learn-rulebook__art {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  justify-items: center;
+  padding: 7px 9% 2px 4%;
+}
+
+.rulebook-cover {
+  display: block;
+  width: min(100%, clamp(275px, 31vw, 460px));
+  height: auto;
+}
+
+.learn-rulebook__art .rulebook-cover {
+  filter: drop-shadow(0 12px 14px rgb(12 4 3 / 75%));
+}
+
+.learn-rulebook__cloth {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: max(-3.9vw, -65px);
+  width: min(77%, 1140px);
+  height: auto;
+  mask-image: linear-gradient(90deg, #000 27%, transparent 66%);
+  pointer-events: none;
+}
+
+.learn-purchase {
+  border-block: 1px solid var(--line);
+  background: linear-gradient(90deg, #100f0d, #201d19 52%, #100f0d);
+}
+
+.learn-purchase__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(235px, 32%);
+  align-items: center;
+  width: min(100%, 1536px);
+  margin-inline: auto;
+  padding: clamp(19px, 2vw, 30px) clamp(26px, 8vw, 122px);
+}
+
+.learn-purchase h2 { font-size: clamp(37px, 4.25vw, 65px); }
+
+.learn-purchase__action {
+  padding-inline: clamp(20px, 3vw, 44px) 0;
+  border-inline-start: 1px solid var(--line);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .learn-rulebook {
+    background:
+      linear-gradient(180deg, #390e12 3%, rgb(57 14 18 / 80%) 40%, rgb(38 11 12 / 22%) 78%, transparent),
+      #380e11 url('../../../public/images/home/product-background.webp') 34% 59% / cover no-repeat;
+  }
+
+  .learn-rulebook__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-inline: clamp(20px, 6vw, 38px);
+  }
+
+  .learn-rulebook__copy { padding: 30px 0 12px; }
+  .learn-rulebook__copy::before,
+  .learn-rulebook__ornament { display: none; }
+
+  .learn-rulebook h2 { max-width: 13ch; font-size: clamp(45px, 12vw, 66px); }
+  .learn-rulebook__description { max-width: 32ch; margin-block: 11px 15px; }
+
+  .learn-rulebook__art { padding: 12px 0 19px; }
+  .rulebook-cover { width: min(100%, 86vw, 384px); }
+  .learn-rulebook__cloth {
+    left: -12%;
+    bottom: -4vw;
+    width: 125%;
+    mask-image: linear-gradient(90deg, #000 29%, transparent 82%);
+  }
+
+  .learn-purchase__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 21px clamp(20px, 6vw, 38px) 24px;
+  }
+
+  .learn-purchase h2 { max-width: 14ch; font-size: clamp(34px, 9.5vw, 54px); }
+  .learn-purchase__action { padding: 0; border: 0; }
+}
