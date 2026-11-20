@@ -1978,3 +1978,301 @@ a.button-gold:hover { filter: brightness(1.1); }
     content: none;
   }
 }
+
+:where(.shop-page) :is(.shop-learning, .shop-closing-purchase) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  border-block-start: 1px solid var(--line);
+}
+
+:where(.shop-page) :is(.shop-learning, .shop-closing-purchase) h2 {
+  margin: 0;
+  color: #ffdfae;
+  font: 600 clamp(42px, 4.28vw, 68px)/.94 var(--font-display);
+  letter-spacing: -.015em;
+}
+
+:where(.shop-page) .shop-learning {
+  background:
+    linear-gradient(90deg, #45181633, #1d0e0ce0 60%),
+    url('public/images/home/product-background.webp') left 15% / cover no-repeat,
+    #301411;
+}
+
+:where(.shop-page) .shop-learning__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  max-width: 1536px;
+  margin-inline: auto;
+}
+
+:where(.shop-page) .shop-learning__copy {
+  z-index: 2;
+  align-self: center;
+  padding: clamp(34px, 3.7vw, 58px) clamp(28px, 4.6vw, 72px) clamp(64px, 5.9vw, 96px);
+}
+
+:where(.shop-page) .shop-learning h2 {
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+:where(.shop-page) .shop-learning__copy p {
+  max-width: 30ch;
+  margin: 12px 0 17px;
+  font: 400 clamp(16px, 1.38vw, 20px)/1.36 var(--font-body);
+}
+
+:where(.shop-page) .shop-learning__copy .button {
+  min-width: min(100%, 192px);
+  gap: 7px;
+}
+
+:where(.shop-page) .shop-learning__copy a:hover {
+  color: var(--gold-light);
+  background: #190e0b;
+}
+
+:where(.shop-page) .shop-learning__rule {
+  position: absolute;
+  z-index: 2;
+  top: 44%;
+  left: 45%;
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  color: var(--gold);
+  font: 400 22px/1 var(--font-interface);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+:where(.shop-page) .shop-learning__rule::before,
+:where(.shop-page) .shop-learning__rule::after {
+  width: 1px;
+  height: clamp(28px, 5vw, 76px);
+  background: linear-gradient(transparent, var(--gold));
+  content: '';
+}
+
+:where(.shop-page) .shop-learning__rule::after {
+  transform: scaleY(-1);
+}
+
+:where(.shop-page) .shop-learning__scene {
+  position: relative;
+  min-width: 0;
+  overflow: clip;
+  background: #2c1a12;
+  mask-image: linear-gradient(to right, transparent, black 15%);
+}
+
+:where(.shop-page) .shop-learning__scene img,
+:where(.shop-page) .shop-learning__velvet,
+:where(.shop-page) .shop-closing-purchase__scenery {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+:where(.shop-page) .shop-learning__room {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+  filter: brightness(.69) blur(2px);
+}
+
+:where(.shop-page) .shop-learning__board {
+  left: -13%;
+  top: 41%;
+  width: 131%;
+  height: auto;
+  transform: rotate(-5deg) scaleY(.43);
+  transform-origin: 50% 0;
+  filter: brightness(.87);
+}
+
+:where(.shop-page) .shop-learning__knight {
+  right: 14%;
+  bottom: 13%;
+  width: auto;
+  height: 77%;
+  transform: scaleX(-1);
+  filter: drop-shadow(-9px 9px 10px #190e0bbb);
+}
+
+:where(.shop-page) .shop-learning__velvet {
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  width: max(100%, 720px);
+  height: auto;
+  transform: translate(-50%, 8%) scaleY(.37);
+  transform-origin: center bottom;
+}
+
+:where(.shop-page) .shop-closing-purchase {
+  background: #191612;
+}
+
+:where(.shop-page) .shop-closing-purchase__scenery {
+  top: 18%;
+  left: 50%;
+  width: min(100%, 1536px);
+  height: auto;
+  transform: translateX(-50%) scaleY(.79);
+  transform-origin: center top;
+  mask-image: linear-gradient(transparent, black 12%, black 43%, transparent 56%);
+}
+
+:where(.shop-page) .shop-closing-purchase::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 6%, #181410 46%, #181410 54%, transparent 95%),
+    linear-gradient(#171411 6%, transparent 74%, #14121080);
+  pointer-events: none;
+  content: '';
+}
+
+:where(.shop-page) .shop-closing-purchase__inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1536px);
+  margin-inline: auto;
+  padding: clamp(24px, 2.5vw, 38px) 24px clamp(33px, 3vw, 48px);
+  display: grid;
+  justify-items: center;
+  gap: clamp(15px, 1.6vw, 24px);
+  text-align: center;
+}
+
+:where(.shop-page) .shop-closing-purchase__heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 30px);
+}
+
+:where(.shop-page) .shop-closing-purchase__heading::before,
+:where(.shop-page) .shop-closing-purchase__heading::after {
+  width: clamp(40px, 10vw, 154px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+  content: '';
+}
+
+:where(.shop-page) .shop-closing-purchase__heading::after {
+  transform: scaleX(-1);
+}
+
+:where(.shop-page) .shop-closing-purchase .pending-action {
+  min-width: min(100%, 218px);
+}
+
+@media (width <= 760px) {
+  :where(.shop-page) .shop-learning__inner {
+    display: block;
+  }
+
+  :where(.shop-page) .shop-learning__copy {
+    padding: 30px clamp(20px, 6vw, 44px) 26px;
+  }
+
+  :where(.shop-page) :is(.shop-learning, .shop-closing-purchase) h2 {
+    font-size: clamp(38px, 10.3vw, 54px);
+  }
+
+  :where(.shop-page) .shop-learning__rule {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-size: 18px;
+    transform: none;
+  }
+
+  :where(.shop-page) .shop-learning__rule::before,
+  :where(.shop-page) .shop-learning__rule::after {
+    width: min(34%, 150px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  :where(.shop-page) .shop-learning__rule::after {
+    transform: scaleX(-1);
+  }
+
+  :where(.shop-page) .shop-learning__scene {
+    aspect-ratio: 1.45;
+    max-height: 350px;
+    mask-image: linear-gradient(to bottom, transparent, black 14%);
+  }
+
+  :where(.shop-page) .shop-learning__room {
+    object-position: center 57%;
+  }
+
+  :where(.shop-page) .shop-learning__board {
+    left: -24%;
+    top: 41%;
+    width: 148%;
+    transform: rotate(-5deg) scaleY(.50);
+  }
+
+  :where(.shop-page) .shop-learning__knight {
+    right: 13%;
+    bottom: 13%;
+    height: 79%;
+  }
+
+  :where(.shop-page) .shop-learning__velvet {
+    width: max(118%, 390px);
+    transform: translate(-50%, 3%) scaleY(.53);
+  }
+
+  :where(.shop-page) .shop-closing-purchase__inner {
+    padding: 25px 20px clamp(46px, 14vw, 76px);
+    gap: 15px;
+  }
+
+  :where(.shop-page) .shop-closing-purchase__heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  :where(.shop-page) .shop-closing-purchase__heading h2 {
+    max-width: 12ch;
+    text-wrap: balance;
+  }
+
+  :where(.shop-page) .shop-closing-purchase__heading::before {
+    width: 100px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  :where(.shop-page) .shop-closing-purchase__heading::after {
+    display: none;
+  }
+
+  :where(.shop-page) .shop-closing-purchase__scenery {
+    top: 38%;
+    right: -14px;
+    left: auto;
+    width: max(117%, 430px);
+    transform: none;
+  }
+
+  :where(.shop-page) .shop-closing-purchase::after {
+    background:
+      linear-gradient(90deg, transparent, #181410e8 35%, #181410d9 63%, transparent),
+      linear-gradient(#171411 17%, transparent 82%, #14121080);
+  }
+}
