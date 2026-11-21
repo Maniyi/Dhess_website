@@ -1,0 +1,193 @@
+.about-idea {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  border-bottom: 1px solid var(--line);
+  color: #3b291b;
+  background:
+    linear-gradient(110deg, rgb(249 229 199 / 55%), rgb(245 228 200 / 16%)),
+    #efd3a5 url('../../../public/images/home/european-intro-paper-tile.webp') center / 300px repeat;
+}
+
+.about-idea::before,
+.about-idea::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.about-idea::before {
+  inset: auto auto 0 0;
+  width: min(26%, 410px);
+  height: clamp(80px, 10vw, 165px);
+  background: url('../../../public/images/home/european-intro-background-desktop.webp') left clamp(-180px, -10.8vw, -100px) / clamp(930px, 95vw, 1450px) auto no-repeat;
+  opacity: .46;
+  mask-image: linear-gradient(90deg, #000 20%, transparent 96%),
+    linear-gradient(0deg, #000 20%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.about-idea::after {
+  bottom: -2%;
+  left: min(13%, 195px);
+  width: min(23%, 330px);
+  height: clamp(80px, 11vw, 160px);
+  background: url('../../../public/images/shop/overview-castle.webp') center bottom / auto 100% no-repeat;
+  opacity: .32;
+  mask-image: linear-gradient(90deg, transparent, #000 25%, #000 70%, transparent),
+    linear-gradient(0deg, #000 60%, transparent 98%);
+  mask-composite: intersect;
+}
+
+.about-idea__inner {
+  position: relative;
+  max-width: 1600px;
+  min-height: clamp(435px, 41.35vw, 662px);
+  margin-inline: auto;
+  display: grid;
+  align-items: start;
+  padding: clamp(39px, 3.98vw, 64px) clamp(26px, 5.55vw, 90px) clamp(90px, 7.9vw, 126px);
+}
+
+.about-idea__copy {
+  position: relative;
+  z-index: 1;
+  width: min(31vw, 420px);
+}
+
+.about-idea__eyebrow {
+  width: min(100%, 292px);
+  margin: 0 0 clamp(15px, 1.25vw, 20px);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(121 90 49 / 45%);
+  color: #851e18;
+  font: 600 clamp(12px, 1.24vw, 17px)/1.2 var(--font-interface);
+  letter-spacing: .16em;
+}
+
+.about-idea h2 {
+  margin: 0 0 clamp(15px, 1.55vw, 24px);
+  color: #302015;
+  font: 600 clamp(42px, 5.35vw, 83px)/.9 var(--font-display);
+  letter-spacing: -.025em;
+}
+
+.about-idea__copy p:not(.about-idea__eyebrow) {
+  max-width: 35ch;
+  margin: 0;
+  font: 400 clamp(15px, 1.32vw, 20px)/1.48 var(--font-body);
+}
+
+.about-idea__copy p:not(.about-idea__eyebrow) + p {
+  margin-top: .85em;
+}
+
+.about-idea__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-idea__assembly {
+  position: absolute;
+  bottom: -16.5%;
+  left: 37.5%;
+  width: max(83%, 790px);
+  aspect-ratio: 1560 / 1100;
+}
+
+.about-idea__board {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(-9px 13px 14px rgb(70 37 18 / 43%));
+}
+
+.about-idea__piece {
+  position: absolute;
+  left: var(--position);
+  bottom: var(--base);
+  width: var(--size);
+  transform: translateX(-50%);
+}
+
+.about-idea__piece::before {
+  content: '';
+  position: absolute;
+  inset: auto -8% 1% 7%;
+  height: 13%;
+  border-radius: 50%;
+  background: rgb(31 18 10 / 85%);
+  filter: blur(3px);
+  transform: rotate(9deg);
+}
+
+.about-idea__piece img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-idea__piece--knight {
+  --position: 11.8%;
+  --base: 31.2%;
+  --size: 8.2%;
+}
+
+.about-idea__piece--rook {
+  --position: 20.8%;
+  --base: 28.2%;
+  --size: 6.1%;
+}
+
+@media (max-width: 760px) {
+  .about-idea::before {
+    bottom: 0;
+    width: 52%;
+    height: 66px;
+    background-position: left -118px;
+    background-size: 900px auto;
+    opacity: .38;
+  }
+
+  .about-idea::after { display: none; }
+
+  .about-idea__inner {
+    display: block;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .about-idea__copy {
+    width: auto;
+    padding: clamp(27px, 6vw, 42px) 24px 0;
+  }
+
+  .about-idea__eyebrow { width: min(100%, 176px); }
+
+  .about-idea h2 { font-size: clamp(41px, 11vw, 62px); }
+
+  .about-idea__scene {
+    position: relative;
+    overflow: clip;
+    margin-top: 16px;
+    height: clamp(202px, 61vw, 390px);
+    mask-image: linear-gradient(transparent, #000 12%);
+  }
+
+  .about-idea__assembly {
+    top: calc(10px - 29vw);
+    bottom: auto;
+    left: 6%;
+    width: 142%;
+  }
+
+  .about-idea__board {
+    filter: drop-shadow(-4px 8px 8px rgb(70 37 18 / 45%));
+  }
+
+  .about-idea__piece::before { filter: blur(1.5px); }
+}
