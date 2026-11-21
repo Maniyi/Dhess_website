@@ -1,0 +1,75 @@
+.about-game-night {
+  background: var(--ink);
+  text-align: center;
+}
+
+.about-game-night__art {
+  position: relative;
+  display: block;
+}
+
+.about-game-night__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-game-night__art::after {
+  position: absolute;
+  inset: 72% 0 0;
+  background: linear-gradient(transparent, var(--ink));
+  content: '';
+}
+
+.about-game-night__copy {
+  position: relative;
+  margin-top: clamp(-104px, -6.5vw, -48px);
+  padding: 0 clamp(20px, 4vw, 56px) clamp(26px, 3.1vw, 46px);
+}
+
+.about-game-night__eyebrow {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font: 400 clamp(12px, 1.16vw, 16px)/1.3 var(--font-interface);
+  letter-spacing: .17em;
+}
+
+.about-game-night__eyebrow::after {
+  display: block;
+  width: 94px;
+  height: 1px;
+  margin: 6px auto 0;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  content: '';
+}
+
+.about-game-night h2 {
+  margin: 0 auto;
+  color: var(--gold-light);
+  font: 600 clamp(42px, 4.6vw, 70px)/1 var(--font-display);
+  text-wrap: balance;
+}
+
+.about-game-night__description {
+  max-width: 42ch;
+  margin: 10px auto 0;
+  color: var(--cream);
+  font: 400 clamp(16px, 1.32vw, 20px)/1.45 var(--font-body);
+  text-wrap: balance;
+}
+
+@media (max-width: 760px) {
+  .about-game-night__art::after {
+    top: 85%;
+  }
+
+  .about-game-night__copy {
+    margin-top: 0;
+    padding-block: 14px 32px;
+  }
+
+  .about-game-night h2 {
+    max-width: 19ch;
+    font-size: clamp(36px, 9.75vw, 58px);
+  }
+}

@@ -8,7 +8,7 @@
     <title>About DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m21">
+    <link rel="stylesheet" href="styles.css?v=m22">
     <script src="script.js" defer></script>
   </head>
   <body class="about-page">
@@ -123,6 +123,21 @@
               <p>European-inspired figures with a presence of their own.</p>
             </li>
           </ul>
+        </div>
+      </section>
+      <section class="about-game-night" aria-labelledby="about-game-night-title">
+        <picture class="about-game-night__art">
+          <source media="(max-width: 760px)"
+            srcset="public/images/about/game-night-mobile.webp" width="1000" height="800">
+          <img src="public/images/about/game-night-desktop.webp"
+            srcset="public/images/about/game-night-desktop-1120.webp 1120w, public/images/about/game-night-desktop.webp 1920w"
+            sizes="100vw" width="1920" height="768" loading="lazy"
+            alt="Two players reach from opposite sides toward dark and ivory pieces on an illustrated board by candlelight.">
+        </picture>
+        <div class="about-game-night__copy">
+          <p class="about-game-night__eyebrow">ACROSS THE TABLE</p>
+          <h2 id="about-game-night-title">Make room for your next game night.</h2>
+          <p class="about-game-night__description">Two players. One shared table. A world to discover.</p>
         </div>
       </section>
     </main>
