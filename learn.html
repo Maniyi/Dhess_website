@@ -8,8 +8,8 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m28">
-    <script src="script.js?v=m28" defer></script>
+    <link rel="stylesheet" href="styles.css?v=m29">
+    <script src="script.js?v=m29" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -556,10 +556,201 @@
               </div>
             </li>
             <li>
-              <div class="learn-pieces__stage" style="--piece-scale: 0.90">
-                <img src="public/images/learn/pieces/rook.webp" width="429" height="736" loading="lazy" decoding="async" alt="">
+              <button class="piece-lesson-trigger" id="rook-trigger" type="button" aria-label="Rook — learn about the Rook" aria-haspopup="dialog" aria-expanded="false" aria-controls="rook-popup" disabled>
+                <span class="learn-pieces__stage" style="--piece-scale: 0.90">
+                  <img src="public/images/learn/pieces/rook.webp" width="429" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">Rook</span>
+              </button>
+              <div class="imperion imperion--single-lesson" id="rook-popup" data-side="left" data-min-side-width="580" popover="manual" role="dialog" aria-labelledby="rook-title" aria-describedby="rook-subtitle">
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/rook.webp" width="429" height="736" loading="lazy" alt="">
+                  <div>
+                    <h3 id="rook-title">The Rook</h3>
+                    <p id="rook-subtitle">The Southern Africa Advisor</p>
+                  </div>
+                  <button class="imperion__close" type="button" aria-label="Close Rook popup">×</button>
+                </header>
+                <div class="imperion__scroll" role="region" aria-label="Lesson content" tabindex="0">
+                  <section class="imperion__page" aria-labelledby="rook-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="rook-movement-title">Move &amp; Capture</h4>
+                      <ol>
+                        <li><strong>Move</strong> Move any distance vertically or horizontally along a clear path. Diagonal moves are forbidden.</li>
+                        <li><strong>Capture</strong> Capture an opponent in your path along the same vertical or horizontal lines. The move ends on the opponent’s square.</li>
+                      </ol>
+                      <p class="imperion__callout"><strong>No jumping</strong> Other pieces block further travel. You cannot land on a friendly piece’s square.</p>
+                    </div>
+                    <figure class="imperion__movement">
+                      <p class="imperion__diagram-title" aria-hidden="true">Full 10 × 10 board</p>
+                      <div class="imperion__board" aria-hidden="true">
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <div class="rook-board__surface">
+                          <svg viewBox="0 0 400 400" focusable="false">
+                            <defs>
+                              <marker id="rook-move-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                                <path d="M 1,1 L 15,8 1,15 Z" fill="#ffd45e" stroke="#412413" stroke-width="1"/>
+                              </marker>
+                              <marker id="rook-capture-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                                <path d="M 1,1 L 15,8 1,15 Z" fill="#951b33" stroke="#fff2d3" stroke-width="1"/>
+                              </marker>
+                            </defs>
+                            <!-- 100 squares, from A10 at the upper left to J1 at the lower right. -->
+                            <g class="rook-board__squares">
+                              <g data-rank="10">
+                                <rect x="0" y="0" width="40" height="40"/>
+                                <rect x="40" y="0" width="40" height="40"/>
+                                <rect x="80" y="0" width="40" height="40"/>
+                                <rect x="120" y="0" width="40" height="40"/>
+                                <rect x="160" y="0" width="40" height="40"/>
+                                <rect x="200" y="0" width="40" height="40"/>
+                                <rect x="240" y="0" width="40" height="40"/>
+                                <rect x="280" y="0" width="40" height="40"/>
+                                <rect x="320" y="0" width="40" height="40"/>
+                                <rect x="360" y="0" width="40" height="40"/>
+                              </g>
+                              <g data-rank="9">
+                                <rect x="0" y="40" width="40" height="40"/>
+                                <rect x="40" y="40" width="40" height="40"/>
+                                <rect x="80" y="40" width="40" height="40"/>
+                                <rect x="120" y="40" width="40" height="40"/>
+                                <rect x="160" y="40" width="40" height="40"/>
+                                <rect x="200" y="40" width="40" height="40"/>
+                                <rect x="240" y="40" width="40" height="40"/>
+                                <rect x="280" y="40" width="40" height="40"/>
+                                <rect x="320" y="40" width="40" height="40"/>
+                                <rect x="360" y="40" width="40" height="40"/>
+                              </g>
+                              <g data-rank="8">
+                                <rect x="0" y="80" width="40" height="40"/>
+                                <rect x="40" y="80" width="40" height="40"/>
+                                <rect x="80" y="80" width="40" height="40"/>
+                                <rect x="120" y="80" width="40" height="40"/>
+                                <rect x="160" y="80" width="40" height="40"/>
+                                <rect x="200" y="80" width="40" height="40"/>
+                                <rect x="240" y="80" width="40" height="40"/>
+                                <rect x="280" y="80" width="40" height="40"/>
+                                <rect x="320" y="80" width="40" height="40"/>
+                                <rect x="360" y="80" width="40" height="40"/>
+                              </g>
+                              <g data-rank="7">
+                                <rect x="0" y="120" width="40" height="40"/>
+                                <rect x="40" y="120" width="40" height="40"/>
+                                <rect x="80" y="120" width="40" height="40"/>
+                                <rect x="120" y="120" width="40" height="40"/>
+                                <rect x="160" y="120" width="40" height="40"/>
+                                <rect x="200" y="120" width="40" height="40"/>
+                                <rect x="240" y="120" width="40" height="40"/>
+                                <rect x="280" y="120" width="40" height="40"/>
+                                <rect x="320" y="120" width="40" height="40"/>
+                                <rect x="360" y="120" width="40" height="40"/>
+                              </g>
+                              <g data-rank="6">
+                                <rect x="0" y="160" width="40" height="40"/>
+                                <rect x="40" y="160" width="40" height="40"/>
+                                <rect x="80" y="160" width="40" height="40"/>
+                                <rect x="120" y="160" width="40" height="40"/>
+                                <rect x="160" y="160" width="40" height="40"/>
+                                <rect x="200" y="160" width="40" height="40"/>
+                                <rect x="240" y="160" width="40" height="40"/>
+                                <rect x="280" y="160" width="40" height="40"/>
+                                <rect x="320" y="160" width="40" height="40"/>
+                                <rect x="360" y="160" width="40" height="40"/>
+                              </g>
+                              <g data-rank="5">
+                                <rect x="0" y="200" width="40" height="40"/>
+                                <rect x="40" y="200" width="40" height="40"/>
+                                <rect x="80" y="200" width="40" height="40"/>
+                                <rect x="120" y="200" width="40" height="40"/>
+                                <rect x="160" y="200" width="40" height="40"/>
+                                <rect x="200" y="200" width="40" height="40"/>
+                                <rect x="240" y="200" width="40" height="40"/>
+                                <rect x="280" y="200" width="40" height="40"/>
+                                <rect x="320" y="200" width="40" height="40"/>
+                                <rect x="360" y="200" width="40" height="40"/>
+                              </g>
+                              <g data-rank="4">
+                                <rect x="0" y="240" width="40" height="40"/>
+                                <rect x="40" y="240" width="40" height="40"/>
+                                <rect x="80" y="240" width="40" height="40"/>
+                                <rect x="120" y="240" width="40" height="40"/>
+                                <rect x="160" y="240" width="40" height="40"/>
+                                <rect x="200" y="240" width="40" height="40"/>
+                                <rect x="240" y="240" width="40" height="40"/>
+                                <rect x="280" y="240" width="40" height="40"/>
+                                <rect x="320" y="240" width="40" height="40"/>
+                                <rect x="360" y="240" width="40" height="40"/>
+                              </g>
+                              <g data-rank="3">
+                                <rect x="0" y="280" width="40" height="40"/>
+                                <rect x="40" y="280" width="40" height="40"/>
+                                <rect x="80" y="280" width="40" height="40"/>
+                                <rect x="120" y="280" width="40" height="40"/>
+                                <rect x="160" y="280" width="40" height="40"/>
+                                <rect x="200" y="280" width="40" height="40"/>
+                                <rect x="240" y="280" width="40" height="40"/>
+                                <rect x="280" y="280" width="40" height="40"/>
+                                <rect x="320" y="280" width="40" height="40"/>
+                                <rect x="360" y="280" width="40" height="40"/>
+                              </g>
+                              <g data-rank="2">
+                                <rect x="0" y="320" width="40" height="40"/>
+                                <rect x="40" y="320" width="40" height="40"/>
+                                <rect x="80" y="320" width="40" height="40"/>
+                                <rect x="120" y="320" width="40" height="40"/>
+                                <rect x="160" y="320" width="40" height="40"/>
+                                <rect x="200" y="320" width="40" height="40"/>
+                                <rect x="240" y="320" width="40" height="40"/>
+                                <rect x="280" y="320" width="40" height="40"/>
+                                <rect x="320" y="320" width="40" height="40"/>
+                                <rect x="360" y="320" width="40" height="40"/>
+                              </g>
+                              <g data-rank="1">
+                                <rect x="0" y="360" width="40" height="40"/>
+                                <rect x="40" y="360" width="40" height="40"/>
+                                <rect x="80" y="360" width="40" height="40"/>
+                                <rect x="120" y="360" width="40" height="40"/>
+                                <rect x="160" y="360" width="40" height="40"/>
+                                <rect x="200" y="360" width="40" height="40"/>
+                                <rect x="240" y="360" width="40" height="40"/>
+                                <rect x="280" y="360" width="40" height="40"/>
+                                <rect x="320" y="360" width="40" height="40"/>
+                                <rect x="360" y="360" width="40" height="40"/>
+                              </g>
+                            </g>
+                            <rect class="rook-board__origin" x="162" y="202" width="36" height="36" rx="4"/>
+                            <rect class="rook-board__blocker" x="162" y="282" width="36" height="36" rx="4"/>
+                            <rect class="rook-board__target" x="322" y="202" width="36" height="36" rx="4"/>
+                            <g class="imperion__opponents">
+                              <image href="public/images/learn/pieces/knight.webp" x="323" y="203" width="34" height="34" data-square="I5"/>
+                            </g>
+                            <!-- E5 is (180, 220). Each arrow ends at its destination's center. -->
+                            <g class="rook-board__move" marker-end="url(#rook-move-arrow)">
+                              <line x1="180" y1="220" x2="180" y2="20" data-destination="E10"/>
+                              <line x1="180" y1="220" x2="20" y2="220" data-destination="A5"/>
+                              <line x1="180" y1="220" x2="180" y2="260" data-destination="E4"/>
+                            </g>
+                            <line class="rook-board__capture" x1="180" y1="220" x2="340" y2="220" marker-end="url(#rook-capture-arrow)" data-destination="I5"/>
+                            <image href="public/images/learn/pieces/pawn.webp" x="163" y="283" width="34" height="34" data-square="E3"/>
+                            <image href="public/images/learn/pieces/rook.webp" x="162" y="202" width="36" height="36" data-square="E5"/>
+                            <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                          </svg>
+                          <span class="rook-board__blocker-label">Blocked</span>
+                        </div>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true">
+                          <span><i class="rook-key rook-key--move"></i> Move</span>
+                          <span><i class="rook-key rook-key--capture"></i> Capture</span>
+                          <span><i class="rook-key rook-key--blocker"></i> Friendly blocker (E3)</span>
+                        </p>
+                        <p>On this 10 × 10 board, the Rook on E5 can move up to E10, left to A5, or down to E4. The friendly Pawn on E3 blocks its own square and all squares beyond it. The Rook can also capture the opposing Knight by ending on I5. Each arrow shows a separate choice.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                </div>
               </div>
-              <span class="learn-pieces__name">Rook</span>
             </li>
             <li>
               <div class="learn-pieces__stage" style="--piece-scale: 0.95">

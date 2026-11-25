@@ -68,6 +68,7 @@ let activeLesson = null;
 function setupPieceLesson(trigger, cancelPendingHovers) {
   const popup = document.getElementById(trigger.getAttribute('aria-controls'));
   const minSideWidth = Number(popup.dataset.minSideWidth ?? 510);
+  const preferLeft = popup.dataset.side === 'left';
   const closeButton = popup.querySelector('.imperion__close');
   const scrollArea = popup.querySelector('.imperion__scroll');
   const pageButtons = [...popup.querySelectorAll('[data-lesson-page]')];
@@ -95,11 +96,13 @@ function setupPieceLesson(trigger, cancelPendingHovers) {
     const viewportHeight = window.innerHeight;
     const triggerRect = trigger.getBoundingClientRect();
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
-    const sideStart = triggerCenter + Math.min(46, triggerRect.width / 4);
-    const sideWidth = viewportWidth - sideStart - edge;
+    const gap = Math.min(46, triggerRect.width / 4);
+    const sideBoundary = triggerCenter + (preferLeft ? -gap : gap);
+    const sideWidth = (preferLeft ? sideBoundary : viewportWidth - sideBoundary) - edge;
     const useSide = besideTrigger && sideWidth >= minSideWidth;
     const width = Math.min(980, useSide ? sideWidth : viewportWidth - 2 * edge);
-    const left = useSide ? sideStart : (viewportWidth - width) / 2;
+    const sideLeft = preferLeft ? sideBoundary - width : sideBoundary;
+    const left = useSide ? sideLeft : (viewportWidth - width) / 2;
 
     popup.style.setProperty('--imperion-width', `${width}px`);
     popup.style.setProperty('--imperion-left', `${left}px`);

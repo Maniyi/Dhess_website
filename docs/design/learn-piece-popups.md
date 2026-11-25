@@ -1,16 +1,16 @@
 # Learn piece popups
 
-The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” with one lesson. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
+The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” and the Rook opens “The Rook,” each with one lesson. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
 
 ## Visual design
 
-The two supplied references inform the warm parchment panel, double gold rim, burgundy headings and page selection, and ivory portrait. The panel reuses the approved site parchment tile. Gold rule numbers and framed diagram labels organize each lesson, and a gold callout gives the palace-row restriction its own line. The popup uses the site’s Cormorant Garamond headings, Georgia controls, and Helvetica Neue body stack. Its heading, rules, page controls, captions, legend, and coordinates are HTML. On desktop the panel sits beside the King where space allows. On touch it opens centered, and the header and footer stay in view while the lesson content scrolls. [Palace Movement reference](../../assets/source/learn-popups/imperion-movement-reference.png) · [GBESELE Capture reference](../../assets/source/learn-popups/imperion-capture-reference.png)
+The two supplied references inform the warm parchment panel, double gold rim, burgundy headings and page selection, and ivory portrait. The panel reuses the approved site parchment tile. Gold rule numbers and framed diagram labels organize each lesson, and a gold callout gives the palace-row restriction its own line. The popup uses the site’s Cormorant Garamond headings, Georgia controls, and Helvetica Neue body stack. Its heading, rules, page controls, captions, legend, and coordinates are HTML. On desktop the panel sits beside its trigger where space allows. The Rook prefers the left side, where its rightmost gallery position leaves more space. On touch the panel opens centered. The header and any lesson navigation stay in view while the content scrolls. [Palace Movement reference](../../assets/source/learn-popups/imperion-movement-reference.png) · [GBESELE Capture reference](../../assets/source/learn-popups/imperion-capture-reference.png)
 
 ## Interaction and accessibility
 
-The King, Queen, Bishop, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
+The King, Queen, Bishop, Rook, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
 
-Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen and Knight, or Diagonal Move & Capture for the Bishop. In the two-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All four content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
+Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen, Knight, and Rook, or Diagonal Move & Capture for the Bishop. In the two-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All five content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
 
 ## Diagram geometry
 
@@ -63,3 +63,15 @@ The diagram uses 100 explicit 40 × 40 SVG cells with A1 at the lower left. The 
 | Empty diagonal paths | E5 → J10 or A1 | Solid gold arrows |
 | Alternative captures | E5 → B8 (opposing Rook) or H2 (opposing Knight) | Dashed burgundy arrows ending on outlined targets |
 | Alternative switches | E5 → D5 or F5 | Solid gold arrows ending on outlined, empty adjacent squares |
+
+## Rook lesson
+
+**The Rook**, “The Southern Africa Advisor,” has one **Move & Capture** lesson. The Rook moves any distance vertically or horizontally along a clear path. It captures an opponent on the same rank or file by ending its move on the opponent’s square. Diagonals are forbidden. The **No jumping** callout explains that pieces block further travel and a friendly-occupied square is unavailable as a landing. The panel uses the approved ivory Rook cutout. [Supplied Rook reference](../../assets/source/learn-popups/rook-reference.png)
+
+The fixed board has 100 explicit 40 × 40 SVG cells. A1 is at the lower left and J10 is at the upper right. All four alternative actions begin at the center of E5, (180, 220). The HTML caption describes each route.
+
+| Example | Coordinates | Diagram key |
+| --- | --- | --- |
+| Clear file and rank moves | E5 → E10 and E5 → A5 | Solid gold arrows to (180, 20) and (20, 220) |
+| Move toward a friendly blocker | E5 → E4, with a friendly Pawn on E3 | Solid gold arrow ending at (180, 260), before the outlined Pawn square and its Blocked label |
+| Capture | E5 → I5, opposing Knight | Dashed burgundy arrow ending on the outlined target at (340, 220) |

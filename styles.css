@@ -3523,14 +3523,16 @@ a.button-gold:hover { filter: brightness(1.1); }
   .imperion__footer { padding-block: 3px; }
 }
 
-/* Queen and Bishop movement diagram styling */
-.queen-board__origin {
+/* Straight-line lesson diagram styling */
+.queen-board__origin,
+.rook-board__origin {
   fill: #ffe29a;
   stroke: #412413;
   stroke-width: 2;
 }
 
-.queen-board__blocker {
+.queen-board__blocker,
+.rook-board__blocker {
   fill: #fff2d3;
   fill-opacity: .35;
   stroke: #352015;
@@ -3541,26 +3543,31 @@ a.button-gold:hover { filter: brightness(1.1); }
 .queen-board__move,
 .queen-board__capture,
 .bishop-board__move,
-.bishop-board__capture {
+.bishop-board__capture,
+.rook-board__move,
+.rook-board__capture {
   stroke-width: 4;
   stroke-linecap: round;
 }
 
 .queen-board__move,
-.bishop-board__move {
+.bishop-board__move,
+.rook-board__move {
   stroke: #ffd45e;
   filter: drop-shadow(0 0 1px #351b0d) drop-shadow(0 0 1px #351b0d);
 }
 
 .queen-board__capture,
-.bishop-board__capture {
+.bishop-board__capture,
+.rook-board__capture {
   stroke: #951b33;
   stroke-dasharray: 7 5;
   filter: drop-shadow(0 0 1px #fff2d3) drop-shadow(0 0 1px #fff2d3);
 }
 
 .queen-key,
-.bishop-key {
+.bishop-key,
+.rook-key {
   display: inline-block;
   width: 1.2em;
   margin-inline-end: .1em;
@@ -3568,13 +3575,16 @@ a.button-gold:hover { filter: brightness(1.1); }
 }
 
 .queen-key--move,
-.bishop-key--move {
+.bishop-key--move,
+.rook-key--move {
   border-top: 3px solid #ffd45e;
   box-shadow: 0 0 0 1px #76510b;
 }
 .queen-key--capture,
-.bishop-key--capture { border-top: 3px dashed #951b33; }
-.queen-key--blocker {
+.bishop-key--capture,
+.rook-key--capture { border-top: 3px dashed #951b33; }
+.queen-key--blocker,
+.rook-key--blocker {
   width: .85em;
   aspect-ratio: 1;
   border: 1px dashed #352015;
@@ -3623,7 +3633,7 @@ a.button-gold:hover { filter: brightness(1.1); }
 .imperion--single-lesson { grid-template-rows: auto minmax(0, 1fr); }
 
 /* Knight lesson diagram */
-#knight-popup .imperion__scroll { border-top: 1px solid #94632870; }
+.imperion--single-lesson .imperion__scroll { border-top: 1px solid #94632870; }
 
 #knight-popup .imperion__movement figcaption p:last-child { margin-top: 5px; }
 
@@ -3690,11 +3700,15 @@ a.button-gold:hover { filter: brightness(1.1); }
 .imperion__legend .knight-key--unavailable { color: #352015; }
 
 /* Bishop lesson diagrams */
-.bishop-board__squares { fill: #f5d49e; }
+.bishop-board__squares,
+.rook-board__squares { fill: #f5d49e; }
 .bishop-board__squares g:nth-child(odd) rect:nth-child(even),
-.bishop-board__squares g:nth-child(even) rect:nth-child(odd) { fill: #754321; }
+.bishop-board__squares g:nth-child(even) rect:nth-child(odd),
+.rook-board__squares g:nth-child(odd) rect:nth-child(even),
+.rook-board__squares g:nth-child(even) rect:nth-child(odd) { fill: #754321; }
 
-.bishop-board__target {
+.bishop-board__target,
+.rook-board__target {
   fill: #fff2d3;
   fill-opacity: .75;
   stroke: #951b33;
@@ -3706,4 +3720,23 @@ a.button-gold:hover { filter: brightness(1.1); }
   fill: none;
   stroke: #76510b;
   stroke-width: 2;
+}
+
+/* The blocker badge sits to the right of E3, centered on rank 3. */
+#rook-popup .imperion__board { max-width: 400px; }
+
+.rook-board__surface {
+  position: relative;
+  grid-area: board;
+}
+
+.rook-board__blocker-label {
+  position: absolute;
+  inset: 75% auto auto 51%;
+  transform: translateY(-50%);
+  padding: 2px 5px;
+  border: 1px solid var(--popup-wine);
+  border-radius: 4px;
+  background: #fff2d3;
+  color: var(--popup-wine);
 }
