@@ -8,8 +8,8 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m12">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=m25-2">
+    <script src="script.js?v=m25" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -110,10 +110,143 @@
           </header>
           <ul class="learn-pieces__gallery" role="list">
             <li>
-              <div class="learn-pieces__stage">
-                <img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" decoding="async" alt="">
+              <button class="imperion-trigger" id="imperion-trigger" type="button" aria-label="King — learn about the Imperion" aria-haspopup="dialog" aria-expanded="false" aria-controls="imperion-popup" disabled>
+                <span class="learn-pieces__stage">
+                  <img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">King</span>
+              </button>
+              <div class="imperion" id="imperion-popup" popover="manual" role="dialog" aria-labelledby="imperion-title">
+                <svg class="imperion__definitions" aria-hidden="true" width="0" height="0">
+                  <defs>
+                    <pattern id="imperion-squares" width="80" height="80" patternUnits="userSpaceOnUse">
+                      <rect width="80" height="80" fill="#f5d49e"/>
+                      <path d="M 40,0 h 40 v 40 h -40 Z M 0,40 h 40 v 40 H 0 Z" fill="#754321"/>
+                    </pattern>
+                    <marker id="imperion-jump-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto">
+                      <path d="M 0,0 L 10,5 0,10 Z" fill="#3d250f"/>
+                    </marker>
+                    <marker id="imperion-sight-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                      <path d="M 0,0 L 10,5 0,10 Z" fill="#fff1ce" stroke="#4e1420" stroke-width="1"/>
+                    </marker>
+                  </defs>
+                </svg>
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" alt="">
+                  <div>
+                    <h3 id="imperion-title">The Imperion — King</h3>
+                    <p>Cannot be threatened or captured.</p>
+                  </div>
+                  <button class="imperion__close" type="button" aria-label="Close Imperion popup">×</button>
+                </header>
+                <div class="imperion__switcher" role="group" aria-label="Imperion lesson pages">
+                  <button type="button" data-imperion-page="0" aria-controls="imperion-movement" aria-pressed="true">Palace Movement</button>
+                  <button type="button" data-imperion-page="1" aria-controls="imperion-capture" aria-pressed="false">GBESELE Capture</button>
+                </div>
+                <div class="imperion__scroll" role="region" aria-label="Lesson content" tabindex="0">
+                  <section class="imperion__page" id="imperion-movement" aria-labelledby="imperion-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="imperion-movement-title" tabindex="-1">Palace Movement</h4>
+                      <ol>
+                        <li><strong>Start on the throne</strong> The Imperion begins on his throne.</li>
+                        <li><strong>Jump within your palace row</strong> He can jump to any unoccupied square in his own palace row.</li>
+                        <li><strong>Jump over occupied squares</strong> He may jump over intervening pieces, but cannot land on an occupied square.</li>
+                      </ol>
+                      <p class="imperion__callout imperion__boundary">The Imperion cannot leave his own palace row.</p>
+                    </div>
+                    <figure class="imperion__movement">
+                      <p class="imperion__diagram-title" aria-hidden="true">Full 10 × 10 board</p>
+                      <div class="imperion__board" aria-hidden="true">
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg viewBox="0 0 400 400">
+                          <rect width="400" height="400" fill="url(#imperion-squares)"/>
+                          <rect x="2" y="362" width="396" height="36" fill="#edb342" fill-opacity=".75" stroke="#684014" stroke-width="3" stroke-dasharray="10 4"/>
+                          <g class="imperion__jump">
+                            <path d="M 196,366 Q 295,300 370,373" marker-end="url(#imperion-jump-arrow)"/>
+                            <path d="M 163,366 Q 87,309 30,373" marker-end="url(#imperion-jump-arrow)"/>
+                            <circle cx="20" cy="380" r="9"/>
+                            <circle cx="380" cy="380" r="9"/>
+                          </g>
+                          <image href="public/images/learn/pieces/king.webp" x="163" y="363" width="34" height="34"/>
+                          <image href="public/images/learn/pieces/rook.webp" x="43" y="363" width="34" height="34"/>
+                          <image href="public/images/learn/pieces/knight.webp" x="283" y="363" width="34" height="34"/>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true"><span><b>▧</b> Palace row</span> <span><b>↷</b> Example jump</span> <span><b>○</b> Empty landing square</span></p>
+                        <p>Illustrative positions. On the 10 × 10 board, the Imperion jumps from E1 to empty A1 or J1, passing over the piece on B1 or H1, respectively. All five squares are in the highlighted palace row.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <section class="imperion__page" id="imperion-capture" aria-labelledby="imperion-capture-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="imperion-capture-title" tabindex="-1">GBESELE Capture</h4>
+                      <p>All three conditions must hold for each target.</p>
+                      <ol>
+                        <li><strong>In your town</strong> The opponent piece is in the Imperion’s half of the board.</li>
+                        <li><strong>Undefended</strong> The opponent piece is unprotected.</li>
+                        <li><strong>Clear sight</strong> No piece blocks the straight line from the Imperion to the target.</li>
+                      </ol>
+                      <p class="imperion__callout">Lift the Imperion and slam him back down on the same square. Remove the qualifying piece, or two or three qualifying pieces simultaneously. This is one move, and the Imperion stays on his square.</p>
+                    </div>
+                    <figure class="imperion__capture">
+                      <p class="imperion__diagram-title" aria-hidden="true">Your town · 10 × 5 half-board</p>
+                      <div class="imperion__comparison">
+                        <div>
+                          <p class="imperion__diagram-title" aria-hidden="true">Before</p>
+                          <div class="imperion__board" aria-hidden="true">
+                            <div class="imperion__ranks"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                            <svg viewBox="0 0 400 200">
+                              <rect width="400" height="200" fill="url(#imperion-squares)"/>
+                              <g class="imperion__sight" marker-end="url(#imperion-sight-arrow)">
+                                <path d="M 163,163 L 33,33"/>
+                                <path d="M 180,159 V 39"/>
+                                <path d="M 197,163 L 327,33"/>
+                              </g>
+                              <g class="imperion__target">
+                                <rect x="3" y="3" width="34" height="34"/>
+                                <rect x="163" y="3" width="34" height="34"/>
+                                <rect x="323" y="3" width="34" height="34"/>
+                              </g>
+                              <g class="imperion__opponents">
+                                <image href="public/images/learn/pieces/rook.webp" x="3" y="3" width="34" height="34"/>
+                                <image href="public/images/learn/pieces/pawn.webp" x="163" y="3" width="34" height="34"/>
+                                <image href="public/images/learn/pieces/knight.webp" x="323" y="3" width="34" height="34"/>
+                              </g>
+                              <image href="public/images/learn/pieces/king.webp" x="163" y="163" width="34" height="34"/>
+                              <rect class="imperion__edge" x="1" y="1" width="398" height="198"/>
+                            </svg>
+                            <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                          </div>
+                        </div>
+                        <div>
+                          <p class="imperion__diagram-title" aria-hidden="true">After</p>
+                          <div class="imperion__board" aria-hidden="true">
+                            <div class="imperion__ranks"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                            <svg viewBox="0 0 400 200">
+                              <rect width="400" height="200" fill="url(#imperion-squares)"/>
+                              <image href="public/images/learn/pieces/king.webp" x="163" y="163" width="34" height="34"/>
+                              <rect class="imperion__edge" x="1" y="1" width="398" height="198"/>
+                            </svg>
+                            <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true"><span><b>⇢</b> Clear sight line</span> <span><b>□</b> Qualifying target</span></p>
+                        <p>Illustrative positions. Before capture, the Imperion on E1 has a clear straight line to A5, E5, and I5 in his 10 × 5 half of the board. All three targets are assumed undefended. After one GBESELE, the three targets are gone and the Imperion remains on E1.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                </div>
+                <footer class="imperion__footer">
+                  <button type="button" data-imperion-step="-1" disabled>← Previous</button>
+                  <span class="imperion__status" role="status">1 of 2</span>
+                  <button type="button" data-imperion-step="1">Next →</button>
+                </footer>
               </div>
-              <span class="learn-pieces__name">King</span>
             </li>
             <li>
               <div class="learn-pieces__stage" style="--piece-scale: 0.96">
