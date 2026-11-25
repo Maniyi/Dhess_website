@@ -1,6 +1,6 @@
 # Learn piece popups
 
-The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” and the Rook opens “The Rook,” each with one lesson. The Mystic opens “The West African Mystic” with three lessons. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
+The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” and the Rook opens “The Rook,” each with one lesson. The Mystic opens “The West African Mystic” and the Pawn opens “The Pawn,” each with three lessons. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
 
 ## Visual design
 
@@ -8,9 +8,9 @@ The two supplied references inform the warm parchment panel, double gold rim, bu
 
 ## Interaction and accessibility
 
-The King, Queen, Bishop, Rook, Mystic, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
+All seven piece buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
 
-Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen, Knight, Rook, and Mystic, or Diagonal Move & Capture for the Bishop. In the multi-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All six content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
+Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen, Knight, Rook, Mystic, and Pawn, or Diagonal Move & Capture for the Bishop. In the multi-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All seven content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
 
 ## Diagram geometry
 
@@ -92,3 +92,24 @@ The fixed board has 100 explicit 40 × 40 SVG cells. A1 is at the lower left and
 **Restore a Piece.** A Mystic from the converted piece’s original town spends its unused Brainwash power from exactly two squares away. Both pieces end on their starting squares. The target turns back to its original town. The two displayed pegs are removed, and the restoring Mystic shows Spent. The converting Mystic’s power remains spent.
 
 Both special-action diagrams have three contiguous squares. Brainwash pairs an ivory Mystic with a charcoal Rook, and restoration pairs a charcoal Mystic with a charcoal Knight. Scoped CSS shading gives the approved cutouts the charcoal finish. Each piece keeps its tone before and after the action. Facing arrows and illustrative Town A and Town B labels communicate allegiance, with the Knight cutout mirrored to show its turn. Independent gold rings show the unused and transferred pegs. The front rim crosses the piece, the back rim sits behind it, and the center stays transparent. Both examples have one empty intervening square. Whether the normal clear-path restriction applies to Brainwash or restoration remains open for the owner to confirm.
+
+## Pawn lessons
+
+**The Pawn**, “The Peasants,” uses the approved ivory portrait. Male and female Peasants follow the same rules. Three SVG diagrams share one definition of 100 explicit 40 × 40 cells. Each has files A–J and ascending ranks from A1 at the lower left. Forward points toward rank 10. The sideways and winning examples place “Opponent’s town” above the grid and bracket “Your town” on the left. The town boundary runs between ranks 5 and 6. Each figure has an HTML text equivalent. [Move & Capture reference](../../assets/source/learn-popups/pawn-movement-reference.png) · [Sideways Special Move reference](../../assets/source/learn-popups/pawn-sideways-reference.png) · [Winning on a Mine reference](../../assets/source/learn-popups/pawn-winning-reference.png)
+
+| Rank | Zone from the illustrated player’s side |
+| --- | --- |
+| 1 | Own palace |
+| 2 | Own market |
+| 3 | Own town center |
+| 4 | Own outskirts |
+| 5 | Own border |
+| 6 | Opponent border |
+| 7 | Opponent outskirts |
+| 8 | Opponent town center |
+| 9 | Opponent market |
+| 10 | Opponent palace |
+
+- **Move & Capture.** From E5, choose an empty square at D5, F5 or E6, or capture one opponent diagonally forward at D6 or F6. Solid gold lines indicate movement and dashed burgundy lines indicate capture. Pawns cannot move or capture backward, capture straight forward, or capture sideways.
+- **Sideways Special Move.** From E4, choose C4 via empty D4 or G4 via empty F4. Both landings are empty and on rank 4. Right-side labels line up with Town center at rank 3, Outskirts at rank 4, and Border at rank 5. Gold outlines highlight the two eligible rows and a dashed burgundy outline marks the ineligible border. A Pawn can repeat the two-square sideways move while eligible and loses it at its own border and onward into the opponent’s town. Jumping and sideways capture are forbidden.
+- **Winning on a Mine.** The “Previous square” callout points to the origin ring at E6. The Pawn moves legally one square ahead to E7, an unoccupied illustrative opponent mine before landing. The callout beside the Rook on I7 reads “Too late / Game over.” Its leader identifies the Rook and ends at the edge of the board. Only a Pawn can win by landing on an opponent’s natural resource mine. The game ends on landing, and the opponent gets no reply. E7 is an example coordinate. Official mine locations and the complete setup remain pending.

@@ -8,7 +8,7 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m30-visual">
+    <link rel="stylesheet" href="styles.css?v=m31-diagrams">
     <script src="script.js?v=m30" defer></script>
   </head>
   <body>
@@ -1167,10 +1167,235 @@
               </div>
             </li>
             <li>
-              <div class="learn-pieces__stage" style="--piece-scale: 0.88">
-                <img src="public/images/learn/pieces/pawn.webp" width="389" height="736" loading="lazy" decoding="async" alt="">
+              <button class="piece-lesson-trigger" id="pawn-trigger" type="button" aria-label="Pawn — learn about the Pawn" aria-haspopup="dialog" aria-expanded="false" aria-controls="pawn-popup" disabled>
+                <span class="learn-pieces__stage" style="--piece-scale: 0.88">
+                  <img src="public/images/learn/pieces/pawn.webp" width="389" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">Pawn</span>
+              </button>
+              <div class="imperion" id="pawn-popup" data-side="left" data-min-side-width="680" popover="manual" role="dialog" aria-labelledby="pawn-title" aria-describedby="pawn-subtitle">
+                <svg class="imperion__definitions" width="0" height="0" aria-hidden="true" focusable="false">
+                  <defs>
+                    <g id="pawn-board-cells">
+                      <!-- 100 squares, from A10 at the upper left to J1 at the lower right. -->
+                      <rect class="pawn-board__light" x="0" y="0" width="40" height="40"/><rect class="pawn-board__dark" x="40" y="0" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="80" y="0" width="40" height="40"/><rect class="pawn-board__dark" x="120" y="0" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="160" y="0" width="40" height="40"/><rect class="pawn-board__dark" x="200" y="0" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="240" y="0" width="40" height="40"/><rect class="pawn-board__dark" x="280" y="0" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="320" y="0" width="40" height="40"/><rect class="pawn-board__dark" x="360" y="0" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="0" y="40" width="40" height="40"/><rect class="pawn-board__light" x="40" y="40" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="80" y="40" width="40" height="40"/><rect class="pawn-board__light" x="120" y="40" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="160" y="40" width="40" height="40"/><rect class="pawn-board__light" x="200" y="40" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="240" y="40" width="40" height="40"/><rect class="pawn-board__light" x="280" y="40" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="320" y="40" width="40" height="40"/><rect class="pawn-board__light" x="360" y="40" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="0" y="80" width="40" height="40"/><rect class="pawn-board__dark" x="40" y="80" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="80" y="80" width="40" height="40"/><rect class="pawn-board__dark" x="120" y="80" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="160" y="80" width="40" height="40"/><rect class="pawn-board__dark" x="200" y="80" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="240" y="80" width="40" height="40"/><rect class="pawn-board__dark" x="280" y="80" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="320" y="80" width="40" height="40"/><rect class="pawn-board__dark" x="360" y="80" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="0" y="120" width="40" height="40"/><rect class="pawn-board__light" x="40" y="120" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="80" y="120" width="40" height="40"/><rect class="pawn-board__light" x="120" y="120" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="160" y="120" width="40" height="40"/><rect class="pawn-board__light" x="200" y="120" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="240" y="120" width="40" height="40"/><rect class="pawn-board__light" x="280" y="120" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="320" y="120" width="40" height="40"/><rect class="pawn-board__light" x="360" y="120" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="0" y="160" width="40" height="40"/><rect class="pawn-board__dark" x="40" y="160" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="80" y="160" width="40" height="40"/><rect class="pawn-board__dark" x="120" y="160" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="160" y="160" width="40" height="40"/><rect class="pawn-board__dark" x="200" y="160" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="240" y="160" width="40" height="40"/><rect class="pawn-board__dark" x="280" y="160" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="320" y="160" width="40" height="40"/><rect class="pawn-board__dark" x="360" y="160" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="0" y="200" width="40" height="40"/><rect class="pawn-board__light" x="40" y="200" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="80" y="200" width="40" height="40"/><rect class="pawn-board__light" x="120" y="200" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="160" y="200" width="40" height="40"/><rect class="pawn-board__light" x="200" y="200" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="240" y="200" width="40" height="40"/><rect class="pawn-board__light" x="280" y="200" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="320" y="200" width="40" height="40"/><rect class="pawn-board__light" x="360" y="200" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="0" y="240" width="40" height="40"/><rect class="pawn-board__dark" x="40" y="240" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="80" y="240" width="40" height="40"/><rect class="pawn-board__dark" x="120" y="240" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="160" y="240" width="40" height="40"/><rect class="pawn-board__dark" x="200" y="240" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="240" y="240" width="40" height="40"/><rect class="pawn-board__dark" x="280" y="240" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="320" y="240" width="40" height="40"/><rect class="pawn-board__dark" x="360" y="240" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="0" y="280" width="40" height="40"/><rect class="pawn-board__light" x="40" y="280" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="80" y="280" width="40" height="40"/><rect class="pawn-board__light" x="120" y="280" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="160" y="280" width="40" height="40"/><rect class="pawn-board__light" x="200" y="280" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="240" y="280" width="40" height="40"/><rect class="pawn-board__light" x="280" y="280" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="320" y="280" width="40" height="40"/><rect class="pawn-board__light" x="360" y="280" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="0" y="320" width="40" height="40"/><rect class="pawn-board__dark" x="40" y="320" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="80" y="320" width="40" height="40"/><rect class="pawn-board__dark" x="120" y="320" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="160" y="320" width="40" height="40"/><rect class="pawn-board__dark" x="200" y="320" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="240" y="320" width="40" height="40"/><rect class="pawn-board__dark" x="280" y="320" width="40" height="40"/>
+                      <rect class="pawn-board__light" x="320" y="320" width="40" height="40"/><rect class="pawn-board__dark" x="360" y="320" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="0" y="360" width="40" height="40"/><rect class="pawn-board__light" x="40" y="360" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="80" y="360" width="40" height="40"/><rect class="pawn-board__light" x="120" y="360" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="160" y="360" width="40" height="40"/><rect class="pawn-board__light" x="200" y="360" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="240" y="360" width="40" height="40"/><rect class="pawn-board__light" x="280" y="360" width="40" height="40"/>
+                      <rect class="pawn-board__dark" x="320" y="360" width="40" height="40"/><rect class="pawn-board__light" x="360" y="360" width="40" height="40"/>
+                    </g>
+                    <marker id="pawn-move-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+                      <path d="M 0,0 L 10,5 L 0,10 Z" fill="#ffd45e"/>
+                    </marker>
+                    <marker id="pawn-capture-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+                      <path d="M 0,0 L 10,5 L 0,10 Z" fill="#951b33"/>
+                    </marker>
+                  </defs>
+                </svg>
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/pawn.webp" width="389" height="736" loading="lazy" alt="">
+                  <div>
+                    <h3 id="pawn-title">The Pawn</h3>
+                    <p id="pawn-subtitle">The Peasants</p>
+                  </div>
+                  <button class="imperion__close" type="button" aria-label="Close Pawn popup">×</button>
+                </header>
+                <div class="imperion__switcher" role="group" aria-label="Pawn lessons">
+                  <button type="button" data-lesson-page aria-controls="pawn-movement" aria-pressed="true">Move &amp; Capture</button>
+                  <button type="button" data-lesson-page aria-controls="pawn-sideways" aria-pressed="false">Sideways Special Move</button>
+                  <button type="button" data-lesson-page aria-controls="pawn-winning" aria-pressed="false">Winning on a Mine</button>
+                </div>
+                <div class="imperion__scroll" tabindex="0" role="region" aria-label="Lesson content">
+                  <section class="imperion__page" id="pawn-movement" aria-labelledby="pawn-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="pawn-movement-title" tabindex="-1">Move &amp; Capture</h4>
+                      <ol>
+                        <li><strong>Move one square</strong> Move forward, left or right to an empty square.</li>
+                        <li><strong>Capture diagonally forward</strong> Move one square diagonally forward onto an opponent. Straight and sideways captures are forbidden.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>Never move or capture backward.</b> Male and female Peasants follow the same rules.</p>
+                    </div>
+                    <figure>
+                      <h5 class="imperion__diagram-title">Forward ↑ toward rank 10</h5>
+                      <div class="imperion__board pawn-board" aria-hidden="true">
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg viewBox="0 0 400 400" focusable="false">
+                          <use href="#pawn-board-cells"/>
+                          <g class="imperion__opponents">
+                            <image href="public/images/learn/pieces/rook.webp" x="123" y="162" width="34" height="36" data-square="D6"/>
+                            <image href="public/images/learn/pieces/knight.webp" x="203" y="162" width="34" height="36" data-square="F6"/>
+                          </g>
+                          <g class="pawn-board__move" marker-end="url(#pawn-move-arrow)">
+                            <path d="M 180,220 H 140" data-destination="D5"/>
+                            <path d="M 180,220 H 220" data-destination="F5"/>
+                            <path d="M 180,220 V 180" data-destination="E6"/>
+                          </g>
+                          <g class="pawn-board__capture" marker-end="url(#pawn-capture-arrow)">
+                            <path d="M 180,220 L 140,180" data-destination="D6"/>
+                            <path d="M 180,220 L 220,180" data-destination="F6"/>
+                          </g>
+                          <image href="public/images/learn/pieces/pawn.webp" x="163" y="202" width="34" height="36" data-square="E5"/>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true">
+                          <span><i class="pawn-key pawn-key--move"></i> Move</span>
+                          <span><i class="pawn-key pawn-key--capture"></i> Capture</span>
+                        </p>
+                        <p>Choose one arrow from E5. Move to empty D5 or F5, move forward to empty E6, or capture one opponent diagonally forward on D6 or F6.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <section class="imperion__page" id="pawn-sideways" aria-labelledby="pawn-sideways-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="pawn-sideways-title" tabindex="-1">Sideways Special Move</h4>
+                      <ol>
+                        <li><strong>Move exactly two squares</strong> Choose left or right and stay on the same rank. Both the intervening square and the destination must be empty.</li>
+                        <li><strong>Use it in two rows</strong> Only the town center (rank 3) and outskirts (rank 4) of your own town qualify. You can repeat the move while eligible.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>No jumping or sideways capture.</b> From your border row (rank 5) onward into the opponent’s town, the special move is unavailable.</p>
+                    </div>
+                    <figure>
+                      <div class="imperion__board pawn-board pawn-board--zoned" aria-hidden="true">
+                        <p class="pawn-board__opponent pawn-board__badge">Opponent’s town</p>
+                        <div class="pawn-board__left">
+                          <span class="pawn-board__own"><span class="pawn-board__badge">Your<br>town</span></span>
+                        </div>
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg viewBox="0 0 400 400" focusable="false">
+                          <use href="#pawn-board-cells"/>
+                          <rect class="pawn-board__border-row" x="0" y="200" width="400" height="40"/>
+                          <rect class="pawn-board__eligible" x="0" y="240" width="400" height="40"/>
+                          <rect class="pawn-board__eligible" x="0" y="280" width="400" height="40"/>
+                          <path class="pawn-board__boundary" d="M 0,200 H 400"/>
+                          <g class="pawn-board__move" marker-end="url(#pawn-move-arrow)">
+                            <path d="M 180,260 H 100" data-destination="C4"/>
+                            <path d="M 180,260 H 260" data-destination="G4"/>
+                          </g>
+                          <g class="pawn-board__distance">
+                            <text x="134" y="250">2 squares</text>
+                            <text x="226" y="250">2 squares</text>
+                          </g>
+                          <image href="public/images/learn/pieces/pawn.webp" x="163" y="242" width="34" height="36" data-square="E4"/>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="pawn-board__right">
+                          <span class="pawn-board__zone pawn-board__zone--border">Border</span>
+                          <span class="pawn-board__zone pawn-board__zone--outskirts">Outskirts</span>
+                          <span class="pawn-board__zone pawn-board__zone--center">Town center</span>
+                        </div>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="pawn-board__instruction">Choose left or right. Stay on the same rank.</p>
+                        <p class="imperion__legend" aria-hidden="true">
+                          <span><i class="pawn-key pawn-key--move"></i> Two-square sideways move</span>
+                          <span><i class="pawn-key pawn-key--border"></i> Border · ability lost</span>
+                        </p>
+                        <p>From E4, choose empty C4 via empty D4 or empty G4 via empty F4. Your town (ranks 1–5) includes the eligible town center (3) and outskirts (4), plus the ineligible border (5). The opponent’s town begins at rank 6.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <section class="imperion__page" id="pawn-winning" aria-labelledby="pawn-winning-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="pawn-winning-title" tabindex="-1">Winning on a Mine</h4>
+                      <ol>
+                        <li><strong>Land on an opponent’s mine</strong> Only a Pawn can win by legally landing on an opponent’s natural resource mine. In this example the mine square is empty before the move.</li>
+                        <li><strong>Win immediately</strong> The game ends as soon as the Pawn lands. The win counts even if an opponent could capture the Pawn on that square.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>Pawn lands → immediate win.</b> No reply move is played.</p>
+                    </div>
+                    <figure>
+                      <div class="imperion__board pawn-board pawn-board--zoned" aria-hidden="true">
+                        <p class="pawn-board__opponent pawn-board__badge">Opponent’s town</p>
+                        <div class="pawn-board__left">
+                          <span class="pawn-board__own"><span class="pawn-board__badge">Your<br>town</span></span>
+                          <span class="pawn-board__previous">Previous<br>square</span>
+                        </div>
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg viewBox="0 0 400 400" focusable="false">
+                          <use href="#pawn-board-cells"/>
+                          <path class="pawn-board__boundary" d="M 0,200 H 400"/>
+                          <rect class="pawn-board__mine" x="161.5" y="121.5" width="37" height="37" data-mine="E7"/>
+                          <path class="pawn-board__leader" d="M 1,180 H 170 M 165,112 L 174,121 M 354,140 H 400"/>
+                          <circle class="pawn-board__origin" cx="180" cy="180" r="9" data-square="E6"/>
+                          <g class="imperion__opponents">
+                            <image href="public/images/learn/pieces/rook.webp" x="323" y="122" width="34" height="36" data-square="I7"/>
+                          </g>
+                          <image href="public/images/learn/pieces/pawn.webp" x="163" y="122" width="34" height="36" data-square="E7"/>
+                          <path class="pawn-board__move" d="M 180,174 V 156" marker-end="url(#pawn-move-arrow)" data-destination="E7"/>
+                          <g class="pawn-board__mine-label">
+                            <rect x="72" y="86" width="188" height="26" rx="5"/>
+                            <text x="166" y="100">Opponent’s mine</text>
+                          </g>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="pawn-board__right">
+                          <span class="pawn-board__too-late">Too late<br>Game over</span>
+                        </div>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="pawn-board__outcome pawn-board__badge">Pawn lands → immediate win</p>
+                        <p class="pawn-board__instruction">No reply move is played.</p>
+                        <p>The Pawn moves one square forward from E6 to the unoccupied illustrative mine at E7 in the opponent’s town. The Rook on I7 could otherwise threaten E7 along the rank. The Pawn wins on landing, before the Rook can move. <span class="sr-only">Your town spans ranks 1–5 and the opponent’s town spans ranks 6–10.</span></p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                </div>
+                <footer class="imperion__footer">
+                  <button type="button" data-lesson-step="-1" disabled>← Previous</button>
+                  <span class="imperion__status" role="status">1 of 3</span>
+                  <button type="button" data-lesson-step="1">Next →</button>
+                </footer>
               </div>
-              <span class="learn-pieces__name">Pawn</span>
             </li>
           </ul>
           <div class="learn-pieces__guide">
