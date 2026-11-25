@@ -8,8 +8,8 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m25-2">
-    <script src="script.js?v=m25" defer></script>
+    <link rel="stylesheet" href="styles.css?v=m27">
+    <script src="script.js?v=m27" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -110,7 +110,7 @@
           </header>
           <ul class="learn-pieces__gallery" role="list">
             <li>
-              <button class="imperion-trigger" id="imperion-trigger" type="button" aria-label="King — learn about the Imperion" aria-haspopup="dialog" aria-expanded="false" aria-controls="imperion-popup" disabled>
+              <button class="piece-lesson-trigger" id="imperion-trigger" type="button" aria-label="King — learn about the Imperion" aria-haspopup="dialog" aria-expanded="false" aria-controls="imperion-popup" disabled>
                 <span class="learn-pieces__stage">
                   <img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" decoding="async" alt="">
                 </span>
@@ -140,8 +140,8 @@
                   <button class="imperion__close" type="button" aria-label="Close Imperion popup">×</button>
                 </header>
                 <div class="imperion__switcher" role="group" aria-label="Imperion lesson pages">
-                  <button type="button" data-imperion-page="0" aria-controls="imperion-movement" aria-pressed="true">Palace Movement</button>
-                  <button type="button" data-imperion-page="1" aria-controls="imperion-capture" aria-pressed="false">GBESELE Capture</button>
+                  <button type="button" data-lesson-page aria-controls="imperion-movement" aria-pressed="true">Palace Movement</button>
+                  <button type="button" data-lesson-page aria-controls="imperion-capture" aria-pressed="false">GBESELE Capture</button>
                 </div>
                 <div class="imperion__scroll" role="region" aria-label="Lesson content" tabindex="0">
                   <section class="imperion__page" id="imperion-movement" aria-labelledby="imperion-movement-title">
@@ -242,17 +242,119 @@
                   </section>
                 </div>
                 <footer class="imperion__footer">
-                  <button type="button" data-imperion-step="-1" disabled>← Previous</button>
+                  <button type="button" data-lesson-step="-1" disabled>← Previous</button>
                   <span class="imperion__status" role="status">1 of 2</span>
-                  <button type="button" data-imperion-step="1">Next →</button>
+                  <button type="button" data-lesson-step="1">Next →</button>
                 </footer>
               </div>
             </li>
             <li>
-              <div class="learn-pieces__stage" style="--piece-scale: 0.96">
-                <img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" decoding="async" alt="">
+              <button class="piece-lesson-trigger" id="queen-trigger" type="button" aria-label="Queen — learn about the Queen" aria-haspopup="dialog" aria-expanded="false" aria-controls="queen-popup" disabled>
+                <span class="learn-pieces__stage" style="--piece-scale: 0.96">
+                  <img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">Queen</span>
+              </button>
+              <div class="imperion" id="queen-popup" popover="manual" role="dialog" aria-labelledby="queen-title">
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" alt="">
+                  <h3 id="queen-title">The Queen</h3>
+                  <button class="imperion__close" type="button" aria-label="Close Queen popup">×</button>
+                </header>
+                <div class="imperion__switcher" role="group" aria-label="Queen lesson pages">
+                  <button type="button" data-lesson-page aria-controls="queen-movement" aria-pressed="true">Move &amp; Capture</button>
+                  <button type="button" data-lesson-page aria-controls="queen-start" aria-pressed="false">Starting Position</button>
+                </div>
+                <div class="imperion__scroll" role="region" aria-label="Lesson content" tabindex="0">
+                  <section class="imperion__page" id="queen-movement" aria-labelledby="queen-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="queen-movement-title" tabindex="-1">Move &amp; Capture</h4>
+                      <ol>
+                        <li><strong>Move</strong> The Queen can move any distance forward, backward, sideways or diagonally in a straight line.</li>
+                        <li><strong>Capture</strong> The Queen can capture an opponent’s piece at any distance along those lines if the path is clear.</li>
+                      </ol>
+                      <p class="imperion__callout"><strong>No jumping</strong> Other pieces block the Queen’s path.</p>
+                    </div>
+                    <figure class="imperion__movement">
+                      <p class="imperion__diagram-title" aria-hidden="true">Full 10 × 10 board</p>
+                      <div class="imperion__board" aria-hidden="true">
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg class="queen-board" viewBox="0 0 400 400" focusable="false">
+                          <defs>
+                            <pattern id="queen-squares" width="80" height="80" patternUnits="userSpaceOnUse">
+                              <rect width="80" height="80" fill="#f5d49e"/>
+                              <path d="M 40,0 h 40 v 40 h -40 Z M 0,40 h 40 v 40 H 0 Z" fill="#754321"/>
+                            </pattern>
+                            <marker id="queen-move-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                              <path d="M 1,1 L 15,8 1,15 Z" fill="#ffd45e"/>
+                            </marker>
+                            <marker id="queen-capture-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                              <path d="M 1,1 L 15,8 1,15 Z" fill="#951b33"/>
+                            </marker>
+                          </defs>
+                          <rect width="400" height="400" fill="url(#queen-squares)"/>
+                          <rect class="queen-board__origin" x="162" y="202" width="36" height="36" rx="4"/>
+                          <rect class="queen-board__blocker" x="242" y="282" width="36" height="36" rx="4"/>
+                          <g class="imperion__opponents">
+                            <image href="public/images/learn/pieces/knight.webp" x="43" y="83" width="34" height="34"/>
+                            <image href="public/images/learn/pieces/rook.webp" x="283" y="203" width="34" height="34"/>
+                          </g>
+                          <image href="public/images/learn/pieces/pawn.webp" x="243" y="283" width="34" height="34"/>
+                          <!-- Square centers are spaced 40 units apart. All rays start on E5 (180, 220). -->
+                          <g class="queen-board__move" marker-end="url(#queen-move-arrow)">
+                            <line x1="180" y1="220" x2="180" y2="20"/>
+                            <line x1="180" y1="220" x2="180" y2="380"/>
+                            <line x1="180" y1="220" x2="20" y2="220"/>
+                            <line x1="180" y1="220" x2="380" y2="20"/>
+                            <line x1="180" y1="220" x2="20" y2="380"/>
+                            <line x1="180" y1="220" x2="220" y2="260"/>
+                          </g>
+                          <g class="queen-board__capture" marker-end="url(#queen-capture-arrow)">
+                            <line x1="180" y1="220" x2="60" y2="100"/>
+                            <line x1="180" y1="220" x2="300" y2="220"/>
+                          </g>
+                          <image href="public/images/learn/pieces/queen.webp" x="162" y="202" width="36" height="36"/>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true">
+                          <span><i class="queen-key queen-key--move"></i> Move</span>
+                          <span><i class="queen-key queen-key--capture"></i> Capture</span>
+                          <span><i class="queen-key queen-key--blocker"></i> Friendly blocker</span>
+                        </p>
+                        <p>On this 10 × 10 board, the Queen on E5 can move to E10, E1, A5, J10, A1 or F4. Captures end at the opponents on B8 and H5. The friendly pawn on G3 blocks the diagonal after F4.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <section class="imperion__page" id="queen-start" aria-labelledby="queen-start-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="queen-start-title" tabindex="-1">Starting Position</h4>
+                      <p class="imperion__callout">The Queen starts immediately to the Imperion’s right.</p>
+                    </div>
+                    <figure>
+                      <p class="imperion__diagram-title">Palace row detail</p>
+                      <div class="queen-palace" role="img" aria-label="Palace row with the Imperion on the left and the Queen on the adjacent square to his right.">
+                        <div>
+                          <div class="queen-palace__square"><img src="public/images/learn/pieces/king.webp" width="421" height="736" loading="lazy" alt=""></div>
+                          <span>Imperion</span>
+                        </div>
+                        <div>
+                          <div class="queen-palace__square"><img src="public/images/learn/pieces/queen.webp" width="348" height="736" loading="lazy" alt=""></div>
+                          <span>Queen</span>
+                        </div>
+                      </div>
+                      <figcaption class="queen-palace__view"><span aria-hidden="true">↑</span> Your side, facing across the board</figcaption>
+                    </figure>
+                  </section>
+                </div>
+                <footer class="imperion__footer">
+                  <button type="button" data-lesson-step="-1" disabled>← Previous</button>
+                  <span class="imperion__status" role="status">1 of 2</span>
+                  <button type="button" data-lesson-step="1">Next →</button>
+                </footer>
               </div>
-              <span class="learn-pieces__name">Queen</span>
             </li>
             <li>
               <div class="learn-pieces__stage" style="--piece-scale: 0.99">
@@ -273,10 +375,205 @@
               <span class="learn-pieces__name">Mystic</span>
             </li>
             <li>
-              <div class="learn-pieces__stage" style="--piece-scale: 0.98">
-                <img src="public/images/learn/pieces/knight.webp" width="423" height="736" loading="lazy" decoding="async" alt="">
+              <button class="piece-lesson-trigger" id="knight-trigger" type="button" aria-label="Knight — learn about the Knight" aria-haspopup="dialog" aria-expanded="false" aria-controls="knight-popup" disabled>
+                <span class="learn-pieces__stage" style="--piece-scale: 0.98">
+                  <img src="public/images/learn/pieces/knight.webp" width="423" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">Knight</span>
+              </button>
+              <div class="imperion imperion--single-lesson" id="knight-popup" popover="manual" role="dialog" aria-labelledby="knight-title" aria-describedby="knight-subtitle">
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/knight.webp" width="423" height="736" loading="lazy" alt="">
+                  <div>
+                    <h3 id="knight-title">The Knight</h3>
+                    <p id="knight-subtitle">The North-Central Warchief</p>
+                  </div>
+                  <button class="imperion__close" type="button" aria-label="Close Knight popup">×</button>
+                </header>
+                <div class="imperion__scroll" role="region" aria-label="Lesson content" tabindex="0">
+                  <section class="imperion__page" aria-labelledby="knight-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="knight-movement-title">Move &amp; Capture</h4>
+                      <ol>
+                        <li><strong>Move</strong> Move two squares horizontally or vertically, then one square at a right angle to form an L-shape.</li>
+                        <li><strong>Capture</strong> Use the same L-shaped move to land on an opponent’s square and capture that piece. You cannot land on a friendly piece’s square.</li>
+                      </ol>
+                      <p class="imperion__callout"><strong>Can jump over other pieces</strong> Intervening pieces do not block the jump.</p>
+                    </div>
+                    <figure class="imperion__movement">
+                      <p class="imperion__diagram-title" aria-hidden="true">Full 10 × 10 board</p>
+                      <div class="imperion__board" aria-hidden="true">
+                        <div class="imperion__ranks"><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                        <svg class="knight-board" viewBox="0 0 400 400" focusable="false">
+                          <defs>
+                            <marker id="knight-move-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                              <path d="M 1,1 L 15,8 1,15 Z" fill="#ffd45e" stroke="#412413" stroke-width="1"/>
+                            </marker>
+                            <marker id="knight-capture-arrow" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                              <path d="M 1,1 L 15,8 1,15 Z" fill="#951b33" stroke="#fff2d3" stroke-width="1"/>
+                            </marker>
+                          </defs>
+                          <!-- 100 squares, from A10 at the upper left to J1 at the lower right. -->
+                          <g class="knight-board__squares">
+                            <g data-rank="10">
+                              <rect x="0" y="0" width="40" height="40"/>
+                              <rect x="40" y="0" width="40" height="40"/>
+                              <rect x="80" y="0" width="40" height="40"/>
+                              <rect x="120" y="0" width="40" height="40"/>
+                              <rect x="160" y="0" width="40" height="40"/>
+                              <rect x="200" y="0" width="40" height="40"/>
+                              <rect x="240" y="0" width="40" height="40"/>
+                              <rect x="280" y="0" width="40" height="40"/>
+                              <rect x="320" y="0" width="40" height="40"/>
+                              <rect x="360" y="0" width="40" height="40"/>
+                            </g>
+                            <g data-rank="9">
+                              <rect x="0" y="40" width="40" height="40"/>
+                              <rect x="40" y="40" width="40" height="40"/>
+                              <rect x="80" y="40" width="40" height="40"/>
+                              <rect x="120" y="40" width="40" height="40"/>
+                              <rect x="160" y="40" width="40" height="40"/>
+                              <rect x="200" y="40" width="40" height="40"/>
+                              <rect x="240" y="40" width="40" height="40"/>
+                              <rect x="280" y="40" width="40" height="40"/>
+                              <rect x="320" y="40" width="40" height="40"/>
+                              <rect x="360" y="40" width="40" height="40"/>
+                            </g>
+                            <g data-rank="8">
+                              <rect x="0" y="80" width="40" height="40"/>
+                              <rect x="40" y="80" width="40" height="40"/>
+                              <rect x="80" y="80" width="40" height="40"/>
+                              <rect x="120" y="80" width="40" height="40"/>
+                              <rect x="160" y="80" width="40" height="40"/>
+                              <rect x="200" y="80" width="40" height="40"/>
+                              <rect x="240" y="80" width="40" height="40"/>
+                              <rect x="280" y="80" width="40" height="40"/>
+                              <rect x="320" y="80" width="40" height="40"/>
+                              <rect x="360" y="80" width="40" height="40"/>
+                            </g>
+                            <g data-rank="7">
+                              <rect x="0" y="120" width="40" height="40"/>
+                              <rect x="40" y="120" width="40" height="40"/>
+                              <rect x="80" y="120" width="40" height="40"/>
+                              <rect x="120" y="120" width="40" height="40"/>
+                              <rect x="160" y="120" width="40" height="40"/>
+                              <rect x="200" y="120" width="40" height="40"/>
+                              <rect x="240" y="120" width="40" height="40"/>
+                              <rect x="280" y="120" width="40" height="40"/>
+                              <rect x="320" y="120" width="40" height="40"/>
+                              <rect x="360" y="120" width="40" height="40"/>
+                            </g>
+                            <g data-rank="6">
+                              <rect x="0" y="160" width="40" height="40"/>
+                              <rect x="40" y="160" width="40" height="40"/>
+                              <rect x="80" y="160" width="40" height="40"/>
+                              <rect x="120" y="160" width="40" height="40"/>
+                              <rect x="160" y="160" width="40" height="40"/>
+                              <rect x="200" y="160" width="40" height="40"/>
+                              <rect x="240" y="160" width="40" height="40"/>
+                              <rect x="280" y="160" width="40" height="40"/>
+                              <rect x="320" y="160" width="40" height="40"/>
+                              <rect x="360" y="160" width="40" height="40"/>
+                            </g>
+                            <g data-rank="5">
+                              <rect x="0" y="200" width="40" height="40"/>
+                              <rect x="40" y="200" width="40" height="40"/>
+                              <rect x="80" y="200" width="40" height="40"/>
+                              <rect x="120" y="200" width="40" height="40"/>
+                              <rect x="160" y="200" width="40" height="40"/>
+                              <rect x="200" y="200" width="40" height="40"/>
+                              <rect x="240" y="200" width="40" height="40"/>
+                              <rect x="280" y="200" width="40" height="40"/>
+                              <rect x="320" y="200" width="40" height="40"/>
+                              <rect x="360" y="200" width="40" height="40"/>
+                            </g>
+                            <g data-rank="4">
+                              <rect x="0" y="240" width="40" height="40"/>
+                              <rect x="40" y="240" width="40" height="40"/>
+                              <rect x="80" y="240" width="40" height="40"/>
+                              <rect x="120" y="240" width="40" height="40"/>
+                              <rect x="160" y="240" width="40" height="40"/>
+                              <rect x="200" y="240" width="40" height="40"/>
+                              <rect x="240" y="240" width="40" height="40"/>
+                              <rect x="280" y="240" width="40" height="40"/>
+                              <rect x="320" y="240" width="40" height="40"/>
+                              <rect x="360" y="240" width="40" height="40"/>
+                            </g>
+                            <g data-rank="3">
+                              <rect x="0" y="280" width="40" height="40"/>
+                              <rect x="40" y="280" width="40" height="40"/>
+                              <rect x="80" y="280" width="40" height="40"/>
+                              <rect x="120" y="280" width="40" height="40"/>
+                              <rect x="160" y="280" width="40" height="40"/>
+                              <rect x="200" y="280" width="40" height="40"/>
+                              <rect x="240" y="280" width="40" height="40"/>
+                              <rect x="280" y="280" width="40" height="40"/>
+                              <rect x="320" y="280" width="40" height="40"/>
+                              <rect x="360" y="280" width="40" height="40"/>
+                            </g>
+                            <g data-rank="2">
+                              <rect x="0" y="320" width="40" height="40"/>
+                              <rect x="40" y="320" width="40" height="40"/>
+                              <rect x="80" y="320" width="40" height="40"/>
+                              <rect x="120" y="320" width="40" height="40"/>
+                              <rect x="160" y="320" width="40" height="40"/>
+                              <rect x="200" y="320" width="40" height="40"/>
+                              <rect x="240" y="320" width="40" height="40"/>
+                              <rect x="280" y="320" width="40" height="40"/>
+                              <rect x="320" y="320" width="40" height="40"/>
+                              <rect x="360" y="320" width="40" height="40"/>
+                            </g>
+                            <g data-rank="1">
+                              <rect x="0" y="360" width="40" height="40"/>
+                              <rect x="40" y="360" width="40" height="40"/>
+                              <rect x="80" y="360" width="40" height="40"/>
+                              <rect x="120" y="360" width="40" height="40"/>
+                              <rect x="160" y="360" width="40" height="40"/>
+                              <rect x="200" y="360" width="40" height="40"/>
+                              <rect x="240" y="360" width="40" height="40"/>
+                              <rect x="280" y="360" width="40" height="40"/>
+                              <rect x="320" y="360" width="40" height="40"/>
+                              <rect x="360" y="360" width="40" height="40"/>
+                            </g>
+                          </g>
+                          <rect class="knight-board__origin" x="162" y="202" width="36" height="36" rx="4"/>
+                          <rect class="knight-board__unavailable" x="242" y="162" width="36" height="36" rx="4"/>
+                          <rect class="knight-board__target" x="242" y="242" width="36" height="36" rx="4"/>
+                          <g class="imperion__opponents">
+                            <image href="public/images/learn/pieces/pawn.webp" x="243" y="243" width="34" height="34" data-square="G4"/>
+                          </g>
+                          <!-- E5 is (180, 220). Each bend is two cells from E5, followed by a one-cell offset. -->
+                          <g class="knight-board__move" marker-end="url(#knight-move-arrow)">
+                            <path d="M 180,220 H 100 V 260" data-destination="C4"/>
+                            <path d="M 180,220 H 100 V 180" data-destination="C6"/>
+                            <path d="M 180,220 V 300 H 140" data-destination="D3"/>
+                            <path d="M 180,220 V 140 H 140" data-destination="D7"/>
+                            <path d="M 180,220 V 300 H 220" data-destination="F3"/>
+                            <path d="M 180,220 V 140 H 220" data-destination="F7"/>
+                          </g>
+                          <path class="knight-board__capture" d="M 180,220 H 260 V 260" marker-end="url(#knight-capture-arrow)" data-destination="G4"/>
+                          <image href="public/images/learn/pieces/rook.webp" x="163" y="163" width="34" height="34" data-square="E6"/>
+                          <image href="public/images/learn/pieces/bishop.webp" x="243" y="163" width="34" height="34" data-square="G6"/>
+                          <circle class="knight-board__cross" cx="271" cy="169" r="8"/>
+                          <path class="knight-board__cross-lines" d="m 267,165 8,8 m 0,-8 -8,8"/>
+                          <image href="public/images/learn/pieces/knight.webp" x="162" y="202" width="36" height="36" data-square="E5"/>
+                          <rect class="imperion__edge" x="1" y="1" width="398" height="398"/>
+                        </svg>
+                        <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span></div>
+                      </div>
+                      <figcaption>
+                        <p class="imperion__legend" aria-hidden="true">
+                          <span><i class="knight-key knight-key--move"></i> Move</span>
+                          <span><i class="knight-key knight-key--capture"></i> Capture</span>
+                          <span><b class="knight-key--unavailable">×</b> Friendly landing unavailable</span>
+                        </p>
+                        <p>On this 10 × 10 board, the Knight on E5 can move to C4, C6, D3, D7, F3 or F7. It can capture the opposing Pawn on G4. The friendly Bishop on G6 makes that landing unavailable. The Knight can jump over the Rook on E6 to reach D7 or F7.</p>
+                        <p>The bent arrows show the two-square and one-square offsets. Only the landing square determines whether the jump is available.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                </div>
               </div>
-              <span class="learn-pieces__name">Knight</span>
             </li>
             <li>
               <div class="learn-pieces__stage" style="--piece-scale: 0.88">

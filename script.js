@@ -63,27 +63,36 @@ if (shopGallery) {
   });
 }
 
-const imperionTrigger = document.querySelector('#imperion-trigger');
+let activeLesson = null;
 
-if (imperionTrigger && typeof HTMLElement.prototype.showPopover === 'function') {
-  const popup = document.querySelector('#imperion-popup');
+function setupPieceLesson(trigger, cancelPendingHovers) {
+  const popup = document.getElementById(trigger.getAttribute('aria-controls'));
   const closeButton = popup.querySelector('.imperion__close');
   const scrollArea = popup.querySelector('.imperion__scroll');
-  const pageButtons = [...popup.querySelectorAll('[data-imperion-page]')];
+  const pageButtons = [...popup.querySelectorAll('[data-lesson-page]')];
   const pages = pageButtons.map((button) => document.getElementById(button.getAttribute('aria-controls')));
-  const [previousButton, nextButton] = popup.querySelectorAll('[data-imperion-step]');
+  const stepButtons = popup.querySelectorAll('[data-lesson-step]');
+  const [previousButton, nextButton] = stepButtons;
   const status = popup.querySelector('.imperion__status');
-  const isOpen = () => popup.matches(':popover-open');
+  const contains = (target) => trigger.contains(target) || popup.contains(target);
+  const hasFocus = () => popup.contains(document.activeElement);
+  const isOpen = () => activeLesson === lesson;
   let currentPage = 0;
   let hoverTimer;
   let openedExplicitly = false;
   let besideTrigger = false;
 
+  function cancelHover() {
+    clearTimeout(hoverTimer);
+  }
+
+  const lesson = { contains, hasFocus, cancelHover, close: closePopup, place: placePopup };
+
   function placePopup(recenter = true) {
     const edge = 12;
     const viewportWidth = document.documentElement.clientWidth;
     const viewportHeight = window.innerHeight;
-    const triggerRect = imperionTrigger.getBoundingClientRect();
+    const triggerRect = trigger.getBoundingClientRect();
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
     const sideStart = triggerCenter + Math.min(46, triggerRect.width / 4);
     const sideWidth = viewportWidth - sideStart - edge;
@@ -105,62 +114,71 @@ if (imperionTrigger && typeof HTMLElement.prototype.showPopover === 'function') 
       page.hidden = pageIndex !== index;
       pageButtons[pageIndex].setAttribute('aria-pressed', String(pageIndex === index));
     });
-    previousButton.disabled = index === 0;
-    nextButton.disabled = index === pages.length - 1;
-    status.textContent = `${index + 1} of ${pages.length}`;
-    scrollArea.scrollTop = 0;
-    if (isOpen()) placePopup(false);
+    if (pageButtons.length) {
+      previousButton.disabled = index === 0;
+      nextButton.disabled = index === pages.length - 1;
+      status.textContent = `${index + 1} of ${pages.length}`;
+    }
+    if (isOpen()) {
+      scrollArea.scrollTop = 0;
+      placePopup(false);
+    }
   }
 
   function openPopup(explicit, pointerType) {
-    clearTimeout(hoverTimer);
+    cancelPendingHovers();
+    if (!explicit && activeLesson?.hasFocus()) return;
+    activeLesson?.close();
     openedExplicitly = explicit;
     besideTrigger = pointerType !== 'touch';
     showPage(0);
+    activeLesson = lesson;
     popup.showPopover();
+    scrollArea.scrollTop = 0;
     placePopup();
-    imperionTrigger.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-expanded', 'true');
     if (explicit) closeButton.focus({ preventScroll: true });
   }
 
   function closePopup(restoreFocus = false) {
-    clearTimeout(hoverTimer);
+    cancelHover();
     if (!isOpen()) return;
+    activeLesson = null;
     popup.hidePopover();
-    imperionTrigger.setAttribute('aria-expanded', 'false');
-    if (restoreFocus) imperionTrigger.focus({ preventScroll: true });
+    trigger.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) trigger.focus({ preventScroll: true });
   }
 
-  imperionTrigger.disabled = false;
+  trigger.disabled = false;
 
-  imperionTrigger.addEventListener('pointerenter', (event) => {
+  trigger.addEventListener('pointerenter', (event) => {
     if (event.pointerType !== 'mouse') return;
-    clearTimeout(hoverTimer);
+    cancelHover();
     if (!isOpen()) hoverTimer = setTimeout(() => openPopup(false, 'mouse'), 230);
   });
 
   function scheduleHoverClose(event) {
     if (event.pointerType !== 'mouse') return;
-    clearTimeout(hoverTimer);
+    cancelHover();
     if (!isOpen() || openedExplicitly) return;
     hoverTimer = setTimeout(() => {
-      if (!popup.matches(':hover') && !imperionTrigger.matches(':hover') && !popup.contains(document.activeElement)) {
+      if (!popup.matches(':hover') && !trigger.matches(':hover') && !hasFocus()) {
         closePopup();
       }
     }, 350);
   }
 
-  imperionTrigger.addEventListener('pointerleave', scheduleHoverClose);
+  trigger.addEventListener('pointerleave', scheduleHoverClose);
   popup.addEventListener('pointerenter', (event) => {
-    if (event.pointerType === 'mouse') clearTimeout(hoverTimer);
+    if (event.pointerType === 'mouse') cancelHover();
   });
   popup.addEventListener('pointerleave', scheduleHoverClose);
 
-  imperionTrigger.addEventListener('click', (event) => {
+  trigger.addEventListener('click', (event) => {
     if (!isOpen()) {
       openPopup(true, event.pointerType);
     } else if (!openedExplicitly) {
-      clearTimeout(hoverTimer);
+      cancelHover();
       openedExplicitly = true;
       closeButton.focus({ preventScroll: true });
     } else {
@@ -174,28 +192,39 @@ if (imperionTrigger && typeof HTMLElement.prototype.showPopover === 'function') 
     button.addEventListener('click', () => showPage(index));
   });
 
-  [previousButton, nextButton].forEach((button) => {
+  stepButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      showPage(currentPage + Number(button.dataset.imperionStep));
+      showPage(currentPage + Number(button.dataset.lessonStep));
       pages[currentPage].querySelector('h4').focus({ preventScroll: true });
     });
   });
 
+  return lesson;
+}
+
+const lessonTriggers = document.querySelectorAll('.piece-lesson-trigger');
+
+if (lessonTriggers.length && typeof HTMLElement.prototype.showPopover === 'function') {
+  const cancelPendingHovers = () => lessons.forEach((lesson) => lesson.cancelHover());
+  const lessons = [...lessonTriggers].map((trigger) => setupPieceLesson(trigger, cancelPendingHovers));
+
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape' || event.defaultPrevented) return;
-    if (isOpen()) event.preventDefault();
-    closePopup(popup.contains(document.activeElement));
+    cancelPendingHovers();
+    if (!activeLesson) return;
+    event.preventDefault();
+    activeLesson.close(activeLesson.hasFocus());
   });
 
   document.addEventListener('focusin', (event) => {
-    if (isOpen() && event.target !== imperionTrigger && !popup.contains(event.target)) closePopup();
+    if (activeLesson && !activeLesson.contains(event.target)) activeLesson.close();
   });
 
   document.addEventListener('click', (event) => {
-    if (!imperionTrigger.contains(event.target) && !popup.contains(event.target)) closePopup();
+    if (activeLesson?.contains(event.target)) return;
+    cancelPendingHovers();
+    activeLesson?.close();
   });
 
-  window.addEventListener('resize', () => {
-    if (isOpen()) placePopup();
-  });
+  window.addEventListener('resize', () => activeLesson?.place());
 }

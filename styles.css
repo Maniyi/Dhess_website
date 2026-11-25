@@ -3208,8 +3208,8 @@ a.button-gold:hover { filter: brightness(1.1); }
   .about-get-to-know__links a + a::before { display: none; }
 }
 
-/* Imperion learning popup */
-.imperion-trigger {
+/* Learn piece popups */
+.piece-lesson-trigger {
   display: block;
   width: 100%;
   padding: 0;
@@ -3219,9 +3219,9 @@ a.button-gold:hover { filter: brightness(1.1); }
   font: inherit;
 }
 
-.imperion-trigger:enabled { cursor: pointer; }
+.piece-lesson-trigger:enabled { cursor: pointer; }
 
-.imperion-trigger:is(:hover:enabled, [aria-expanded="true"]) .learn-pieces__name {
+.piece-lesson-trigger:is(:hover:enabled, [aria-expanded="true"]) .learn-pieces__name {
   color: var(--gold-light);
   text-decoration: underline;
   text-underline-offset: .15em;
@@ -3522,3 +3522,162 @@ a.button-gold:hover { filter: brightness(1.1); }
   .imperion__switcher { padding-bottom: 5px; }
   .imperion__footer { padding-block: 3px; }
 }
+
+/* Queen lesson diagrams */
+.queen-board__origin {
+  fill: #ffe29a;
+  stroke: #412413;
+  stroke-width: 2;
+}
+
+.queen-board__blocker {
+  fill: #fff2d3;
+  fill-opacity: .35;
+  stroke: #352015;
+  stroke-width: 3;
+  stroke-dasharray: 4 3;
+}
+
+.queen-board__move,
+.queen-board__capture {
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.queen-board__move {
+  stroke: #ffd45e;
+  filter: drop-shadow(0 0 1px #351b0d) drop-shadow(0 0 1px #351b0d);
+}
+
+.queen-board__capture {
+  stroke: #951b33;
+  stroke-dasharray: 7 5;
+  filter: drop-shadow(0 0 1px #fff2d3) drop-shadow(0 0 1px #fff2d3);
+}
+
+.queen-key {
+  display: inline-block;
+  width: 1.2em;
+  margin-inline-end: .1em;
+  vertical-align: .2em;
+}
+
+.queen-key--move {
+  border-top: 3px solid #ffd45e;
+  box-shadow: 0 0 0 1px #76510b;
+}
+.queen-key--capture { border-top: 3px dashed #951b33; }
+.queen-key--blocker {
+  width: .85em;
+  aspect-ratio: 1;
+  border: 1px dashed #352015;
+  vertical-align: -.08em;
+}
+
+.queen-palace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 290px;
+  margin-inline: auto;
+  text-align: center;
+  font: 700 1rem/1.25 var(--font-interface);
+}
+
+.queen-palace__square {
+  position: relative;
+  aspect-ratio: 1;
+  margin-block-end: 5px;
+  border: 2px solid #754321;
+  background: #f5d49e;
+}
+
+.queen-palace > :last-child .queen-palace__square {
+  border-inline-start: 0;
+  background: #754321;
+}
+
+.queen-palace__square img {
+  position: absolute;
+  inset: 0;
+  width: 65%;
+  height: 83%;
+  margin: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px #352015a6);
+}
+
+.queen-palace__view {
+  text-align: center;
+  font-family: var(--font-interface);
+}
+
+.queen-palace__view span { color: var(--popup-wine); }
+
+.imperion--single-lesson { grid-template-rows: auto minmax(0, 1fr); }
+
+/* Knight lesson diagram */
+#knight-popup .imperion__scroll { border-top: 1px solid #94632870; }
+
+#knight-popup .imperion__movement figcaption p:last-child { margin-top: 5px; }
+
+.knight-board__squares { fill: #f5d49e; }
+.knight-board__squares g:nth-child(odd) rect:nth-child(even),
+.knight-board__squares g:nth-child(even) rect:nth-child(odd) { fill: #754321; }
+
+.knight-board__origin {
+  fill: #ffe29a;
+  stroke: #412413;
+  stroke-width: 2;
+}
+
+.knight-board__unavailable {
+  fill: #fff2d3;
+  fill-opacity: .45;
+  stroke: #352015;
+  stroke-width: 3;
+}
+
+.knight-board__target {
+  fill: #fff2d3;
+  fill-opacity: .7;
+  stroke: #951b33;
+  stroke-width: 3;
+  stroke-dasharray: 5 3;
+}
+
+.knight-board__move,
+.knight-board__capture {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.knight-board__move {
+  stroke: #ffd45e;
+  filter: drop-shadow(0 0 1px #351b0d) drop-shadow(0 0 1px #351b0d);
+}
+
+.knight-board__capture {
+  stroke: #951b33;
+  stroke-dasharray: 7 5;
+  filter: drop-shadow(0 0 1px #fff2d3) drop-shadow(0 0 1px #fff2d3);
+}
+
+.knight-board__cross { fill: #352015; }
+.knight-board__cross-lines { fill: none; stroke: #fff2d3; stroke-width: 2; }
+
+.knight-key {
+  display: inline-block;
+  width: 1.2em;
+  margin-inline-end: .1em;
+  vertical-align: .2em;
+}
+
+.knight-key--move {
+  border-top: 3px solid #ffd45e;
+  box-shadow: 0 0 0 1px #76510b;
+}
+
+.knight-key--capture { border-top: 3px dashed #951b33; }
+.imperion__legend .knight-key--unavailable { color: #352015; }
