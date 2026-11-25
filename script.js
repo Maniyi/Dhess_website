@@ -86,6 +86,7 @@ function setupPieceLesson(trigger, cancelPendingHovers) {
 
   function cancelHover() {
     clearTimeout(hoverTimer);
+    hoverTimer = undefined;
   }
 
   const lesson = { contains, hasFocus, cancelHover, close: closePopup, place: placePopup };
@@ -156,9 +157,13 @@ function setupPieceLesson(trigger, cancelPendingHovers) {
   trigger.disabled = false;
 
   trigger.addEventListener('pointerenter', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    cancelHover();
-    if (!isOpen()) hoverTimer = setTimeout(() => openPopup(false, 'mouse'), 230);
+    if (event.pointerType === 'mouse') cancelHover();
+  });
+
+  trigger.addEventListener('pointermove', (event) => {
+    // Dismissing an overlapping panel can expose a trigger under a stationary pointer.
+    if (event.pointerType !== 'mouse' || isOpen() || hoverTimer !== undefined) return;
+    hoverTimer = setTimeout(() => openPopup(false, 'mouse'), 230);
   });
 
   function scheduleHoverClose(event) {

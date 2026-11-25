@@ -1,6 +1,6 @@
 # Learn piece popups
 
-The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” and the Rook opens “The Rook,” each with one lesson. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
+The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” and the Rook opens “The Rook,” each with one lesson. The Mystic opens “The West African Mystic” with three lessons. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
 
 ## Visual design
 
@@ -8,9 +8,9 @@ The two supplied references inform the warm parchment panel, double gold rim, bu
 
 ## Interaction and accessibility
 
-The King, Queen, Bishop, Rook, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
+The King, Queen, Bishop, Rook, Mystic, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
 
-Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen, Knight, and Rook, or Diagonal Move & Capture for the Bishop. In the two-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All five content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
+Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen, Knight, Rook, and Mystic, or Diagonal Move & Capture for the Bishop. In the multi-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All six content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
 
 ## Diagram geometry
 
@@ -75,3 +75,20 @@ The fixed board has 100 explicit 40 × 40 SVG cells. A1 is at the lower left and
 | Clear file and rank moves | E5 → E10 and E5 → A5 | Solid gold arrows to (180, 20) and (20, 220) |
 | Move toward a friendly blocker | E5 → E4, with a friendly Pawn on E3 | Solid gold arrow ending at (180, 260), before the outlined Pawn square and its Blocked label |
 | Capture | E5 → I5, opposing Knight | Dashed burgundy arrow ending on the outlined target at (340, 220) |
+
+## Mystic lessons
+
+**The West African Mystic** uses the approved hooded portrait and the shared parchment frame, gold border, and burgundy selection styling. The three lessons use fixed diagrams, editable rules and equivalent captions. [Movement reference](../../assets/source/learn-popups/mystic-movement-reference.png) · [Brainwash reference](../../assets/source/learn-popups/mystic-brainwash-reference.png) · [Restoration reference](../../assets/source/learn-popups/mystic-restore-reference.png)
+
+**Move & Capture.** Two labeled 5 × 5 board excerpts use 40-unit cells with A1 at bottom left and the Mystic at C3. Each arrow is a separate option. Solid gold arrows end on empty squares. A dashed burgundy arrow shows the example capture on E3. The Mystic lands on the captured opponent’s square. An adjacent opponent cannot be captured, a friendly-occupied square is unavailable, and an intervening piece blocks a two-square move or capture.
+
+| Distance | Endpoints |
+| --- | --- |
+| One square | B2, B3, B4, C2, C4, D2, D3, D4 |
+| Two squares | A1, A3, A5, C1, C5, E1, E3, E5 |
+
+**Brainwash.** A Mystic with an unused peg taps an opponent exactly two squares away and returns to its original square. The opponent turns toward the Mystic’s town, stays on its own square, and receives the Mystic’s peg. The Imperion is immune. The move spends the Mystic’s once-only power and counts as one move.
+
+**Restore a Piece.** A Mystic from the converted piece’s original town spends its unused Brainwash power from exactly two squares away. Both pieces end on their starting squares. The target turns back to its original town. The two displayed pegs are removed, and the restoring Mystic shows Spent. The converting Mystic’s power remains spent.
+
+Both special-action diagrams have three contiguous squares. Brainwash pairs an ivory Mystic with a charcoal Rook, and restoration pairs a charcoal Mystic with a charcoal Knight. Scoped CSS shading gives the approved cutouts the charcoal finish. Each piece keeps its tone before and after the action. Facing arrows and illustrative Town A and Town B labels communicate allegiance, with the Knight cutout mirrored to show its turn. Independent gold rings show the unused and transferred pegs. The front rim crosses the piece, the back rim sits behind it, and the center stays transparent. Both examples have one empty intervening square. Whether the normal clear-path restriction applies to Brainwash or restoration remains open for the owner to confirm.

@@ -3740,3 +3740,155 @@ a.button-gold:hover { filter: brightness(1.1); }
   background: #fff2d3;
   color: var(--popup-wine);
 }
+
+/* Mystic board excerpts and before/after illustrations */
+#mystic-popup .imperion__switcher {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mystic-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+.mystic-excerpt {
+  max-width: 246px;
+}
+
+.mystic-excerpt .imperion__files {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.mystic-square--light { fill: #f5d49e; }
+.mystic-square--dark { fill: #754321; }
+
+.mystic-route--move {
+  stroke: #ffdc82;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 1px #352015) drop-shadow(0 0 1px #352015);
+}
+
+.mystic-arrow--move { fill: #ffdc82; stroke: #683c15; stroke-width: .7; }
+
+.mystic-route--capture {
+  stroke: #7a1729;
+  stroke-width: 3;
+  stroke-dasharray: 5 3;
+  filter: drop-shadow(0 0 1px #ffedc3);
+}
+
+.mystic-arrow--capture { fill: #7a1729; stroke: #ffedc3; stroke-width: .7; }
+.mystic-target { fill: none; stroke: #7a1729; stroke-width: 2; }
+
+#mystic-popup .mystic-special {
+  width: 100%;
+  max-width: 306px;
+  margin-inline: auto;
+}
+
+.mystic-special .imperion__boundary {
+  margin: 0 0 8px;
+}
+
+.mystic-state + .mystic-state {
+  margin-top: 12px;
+}
+
+.mystic-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #946328;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mystic-strip__square {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: #f5d49e;
+}
+
+.mystic-strip__empty { background: #754321; }
+
+.mystic-strip__square img {
+  width: 65%;
+  height: 84%;
+  position: absolute;
+  z-index: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px #41241390);
+}
+
+#mystic-popup .mystic-piece--dark {
+  filter: grayscale(1) brightness(.43) contrast(1.12) drop-shadow(0 1px 1px #41241380);
+}
+
+.mystic-facing--left { transform: scaleX(-1); }
+
+.mystic-peg {
+  position: absolute;
+  inset: 57% 27% 26%;
+}
+
+/* Place the cutout between the rear rim and the near half of the ring. */
+.mystic-peg::before,
+.mystic-peg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: clamp(3px, .6cqi, 5px) solid #d6a42c;
+  border-radius: 50%;
+  box-shadow: inset 0 1px #9a620e, 0 1px #794908;
+}
+
+.mystic-peg::before {
+  border-top-color: #ffe5a0;
+}
+
+.mystic-peg::after {
+  z-index: 2;
+  border-bottom-color: #efbf46;
+  box-shadow: inset 0 -1px #fff0a6, 0 1px 1px #794908;
+  clip-path: inset(43% -2px -3px);
+}
+
+.mystic-strip__label {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-top: 1px solid #946328;
+  background: #ffecc6;
+  text-align: center;
+  font: .78rem/1.2 var(--font-interface);
+}
+
+.mystic-strip__label--empty { align-content: center; background: #efd09d; }
+.mystic-strip__label span { color: var(--popup-wine); font-weight: 700; }
+
+#mystic-popup .mystic-special figcaption p + p {
+  margin-top: 6px;
+}
+
+@container (min-width: 621px) {
+  .mystic-comparison .imperion__diagram-title {
+    display: grid;
+    place-items: center;
+    min-height: 2.65rem;
+  }
+}
+
+@container (max-width: 620px) {
+  .mystic-comparison { grid-template-columns: minmax(0, 1fr); }
+}
+
+@container (max-width: 380px) {
+  #mystic-popup .imperion__switcher { gap: 4px; }
+  #mystic-popup .imperion__switcher button { padding-inline: 3px; }
+}

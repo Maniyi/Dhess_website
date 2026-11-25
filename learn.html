@@ -8,8 +8,8 @@
     <title>Learn to play DHESS: European Edition</title>
     <link rel="icon" href="data:,">
     <link rel="preload" as="font" type="font/woff2" href="public/fonts/CormorantGaramond-600-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=m29">
-    <script src="script.js?v=m29" defer></script>
+    <link rel="stylesheet" href="styles.css?v=m30-visual">
+    <script src="script.js?v=m30" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -753,10 +753,217 @@
               </div>
             </li>
             <li>
-              <div class="learn-pieces__stage" style="--piece-scale: 0.95">
-                <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" loading="lazy" decoding="async" alt="">
+              <button class="piece-lesson-trigger" id="mystic-trigger" type="button" aria-label="Mystic — learn about the Mystic" aria-haspopup="dialog" aria-expanded="false" aria-controls="mystic-popup" disabled>
+                <span class="learn-pieces__stage" style="--piece-scale: 0.95">
+                  <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" loading="lazy" decoding="async" alt="">
+                </span>
+                <span class="learn-pieces__name">Mystic</span>
+              </button>
+              <div class="imperion" id="mystic-popup" data-side="left" data-min-side-width="700" popover="manual" role="dialog" aria-labelledby="mystic-title">
+                <header class="imperion__header">
+                  <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" loading="lazy" alt="">
+                  <h3 id="mystic-title">The West African Mystic</h3>
+                  <button class="imperion__close" type="button" aria-label="Close Mystic popup">×</button>
+                </header>
+                <div class="imperion__switcher" role="group" aria-label="Mystic lessons">
+                  <button type="button" data-lesson-page aria-controls="mystic-movement" aria-pressed="true">Move &amp; Capture</button>
+                  <button type="button" data-lesson-page aria-controls="mystic-brainwash" aria-pressed="false">Brainwash</button>
+                  <button type="button" data-lesson-page aria-controls="mystic-restore" aria-pressed="false">Restore a Piece</button>
+                </div>
+                <div class="imperion__scroll" tabindex="0" role="region" aria-label="Lesson content">
+                  <section class="imperion__page" id="mystic-movement" aria-labelledby="mystic-movement-title">
+                    <div class="imperion__rules">
+                      <h4 id="mystic-movement-title" tabindex="-1">Move &amp; Capture</h4>
+                      <ol>
+                        <li><strong>Move</strong> Move one or two squares forward, backward, sideways, or diagonally in a straight line to an empty square. A friendly piece makes its square unavailable.</li>
+                        <li><strong>Capture</strong> Land on an opponent exactly two squares away. An adjacent opponent cannot be captured.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>No jumping.</b> The intervening square must be clear for a two-square move or capture.</p>
+                    </div>
+                    <div class="mystic-comparison">
+                      <figure>
+                        <h5 class="imperion__diagram-title">One square · Move only</h5>
+                        <div class="imperion__board mystic-excerpt" aria-hidden="true">
+                          <div class="imperion__ranks"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                          <svg viewBox="0 0 200 200" focusable="false">
+                            <defs>
+                              <pattern id="mystic-distance-1-tiles" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <rect class="mystic-square--light" width="80" height="80"/>
+                                <path class="mystic-square--dark" d="M40 0h40v40H40zM0 40h40v40H0z"/>
+                              </pattern>
+                              <marker id="mystic-distance-1-move" viewBox="0 0 9 9" refX="9" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                                <path class="mystic-arrow--move" d="M0 0 9 4.5 0 9Z"/>
+                              </marker>
+                            </defs>
+                            <rect width="200" height="200" fill="url(#mystic-distance-1-tiles)"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="60" y2="140" marker-end="url(#mystic-distance-1-move)" data-destination="B2"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="60" y2="100" marker-end="url(#mystic-distance-1-move)" data-destination="B3"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="60" y2="60" marker-end="url(#mystic-distance-1-move)" data-destination="B4"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="100" y2="140" marker-end="url(#mystic-distance-1-move)" data-destination="C2"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="100" y2="60" marker-end="url(#mystic-distance-1-move)" data-destination="C4"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="140" y2="140" marker-end="url(#mystic-distance-1-move)" data-destination="D2"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="140" y2="100" marker-end="url(#mystic-distance-1-move)" data-destination="D3"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="140" y2="60" marker-end="url(#mystic-distance-1-move)" data-destination="D4"/>
+                            <image href="public/images/learn/pieces/mystic.webp" x="84" y="84" width="32" height="32"/>
+                          </svg>
+                          <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
+                        </div>
+                        <figcaption>
+                          <p class="imperion__legend" aria-hidden="true">
+                            <span><i class="rook-key rook-key--move"></i> Move</span>
+                          </p>
+                          <p>5 × 5 board excerpt. From C3, choose one of the empty squares B2, B3, B4, C2, C4, D2, D3, or D4.</p>
+                        </figcaption>
+                      </figure>
+                      <figure>
+                        <h5 class="imperion__diagram-title">Two squares · Move or capture</h5>
+                        <div class="imperion__board mystic-excerpt" aria-hidden="true">
+                          <div class="imperion__ranks"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+                          <svg viewBox="0 0 200 200" focusable="false">
+                            <defs>
+                              <pattern id="mystic-distance-2-tiles" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <rect class="mystic-square--light" width="80" height="80"/>
+                                <path class="mystic-square--dark" d="M40 0h40v40H40zM0 40h40v40H0z"/>
+                              </pattern>
+                              <marker id="mystic-distance-2-move" viewBox="0 0 9 9" refX="9" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                                <path class="mystic-arrow--move" d="M0 0 9 4.5 0 9Z"/>
+                              </marker>
+                                <marker id="mystic-distance-2-capture" viewBox="0 0 9 9" refX="9" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                                  <path class="mystic-arrow--capture" d="M0 0 9 4.5 0 9Z"/>
+                                </marker>
+                            </defs>
+                            <rect width="200" height="200" fill="url(#mystic-distance-2-tiles)"/>
+                              <rect class="mystic-target" x="162" y="82" width="36" height="36" rx="3"/>
+                              <image class="mystic-piece--dark" href="public/images/learn/pieces/knight.webp" x="164" y="84" width="32" height="32"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="20" y2="180" marker-end="url(#mystic-distance-2-move)" data-destination="A1"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="20" y2="100" marker-end="url(#mystic-distance-2-move)" data-destination="A3"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="20" y2="20" marker-end="url(#mystic-distance-2-move)" data-destination="A5"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="100" y2="180" marker-end="url(#mystic-distance-2-move)" data-destination="C1"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="100" y2="20" marker-end="url(#mystic-distance-2-move)" data-destination="C5"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="180" y2="180" marker-end="url(#mystic-distance-2-move)" data-destination="E1"/>
+                              <line class="mystic-route--capture" x1="100" y1="100" x2="180" y2="100" marker-end="url(#mystic-distance-2-capture)" data-destination="E3"/>
+                              <line class="mystic-route--move" x1="100" y1="100" x2="180" y2="20" marker-end="url(#mystic-distance-2-move)" data-destination="E5"/>
+                            <image href="public/images/learn/pieces/mystic.webp" x="84" y="84" width="32" height="32"/>
+                          </svg>
+                          <div class="imperion__files"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
+                        </div>
+                        <figcaption>
+                          <p class="imperion__legend" aria-hidden="true">
+                            <span><i class="rook-key rook-key--move"></i> Move</span>
+                            <span><i class="rook-key rook-key--capture"></i> Capture</span>
+                          </p>
+                          <p>5 × 5 board excerpt. From C3, choose one of the empty squares A1, A3, A5, C1, C5, E1, or E5. Or capture the opposing Knight by landing on E3.</p>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </section>
+                  <section class="imperion__page" id="mystic-brainwash" aria-labelledby="mystic-brainwash-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="mystic-brainwash-title" tabindex="-1">Brainwash</h4>
+                      <ol>
+                        <li><strong>Choose an opponent</strong> Use the Mystic’s peg to brainwash an opponent exactly two squares away. The Imperion cannot be brainwashed.</li>
+                        <li><strong>Tap and return</strong> Tap the target, then return the Mystic to its original square. The target stays on its square.</li>
+                        <li><strong>Change allegiance</strong> Turn the target to face and fight for the Mystic’s town. Transfer the Mystic’s peg to the converted piece.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>Once per Mystic.</b> Each Mystic starts with a peg around its torso to show that its power is unused. Brainwash counts as one move.</p>
+                    </div>
+                    <figure class="mystic-special">
+                      <p class="imperion__boundary">Two squares apart</p>
+                      <div class="mystic-state" aria-hidden="true">
+                        <h5 class="imperion__diagram-title">Before</h5>
+                        <div class="mystic-strip">
+                          <div class="mystic-strip__square">
+                            <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" alt="">
+                            <span class="mystic-peg"></span>
+                          </div>
+                          <div class="mystic-strip__square mystic-strip__empty"></div>
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark mystic-facing--left" src="public/images/learn/pieces/rook.webp" width="429" height="736" alt="">
+                          </div>
+                          <div class="mystic-strip__label"><b>Mystic<br>Town B</b><span>Unused</span></div>
+                          <div class="mystic-strip__label mystic-strip__label--empty">Empty</div>
+                          <div class="mystic-strip__label"><b>Rook<br>Town A</b><span>Faces ←</span></div>
+                        </div>
+                      </div>
+                      <div class="mystic-state" aria-hidden="true">
+                        <h5 class="imperion__diagram-title">After</h5>
+                        <div class="mystic-strip">
+                          <div class="mystic-strip__square">
+                            <img src="public/images/learn/pieces/mystic.webp" width="372" height="736" alt="">
+                          </div>
+                          <div class="mystic-strip__square mystic-strip__empty"></div>
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark mystic-facing--right" src="public/images/learn/pieces/rook.webp" width="429" height="736" alt="">
+                            <span class="mystic-peg"></span>
+                          </div>
+                          <div class="mystic-strip__label"><b>Mystic<br>Town B</b><span>Spent</span></div>
+                          <div class="mystic-strip__label mystic-strip__label--empty">Empty</div>
+                          <div class="mystic-strip__label"><b>Rook<br>Town B</b><span>Faces →</span></div>
+                        </div>
+                      </div>
+                      <figcaption>
+                        <p>Before, the Town B Mystic has its peg. One empty square separates it from the opposing Rook facing left for Town A.</p>
+                        <p>After, both pieces stay on their squares. The Rook turns to Town B. The peg transfers to the Rook. The Mystic’s power is spent.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <section class="imperion__page" id="mystic-restore" aria-labelledby="mystic-restore-title" hidden>
+                    <div class="imperion__rules">
+                      <h4 id="mystic-restore-title" tabindex="-1">Restore a Piece</h4>
+                      <ol>
+                        <li><strong>Choose a converted piece</strong> A Mystic from the piece’s original town can restore it from exactly two squares away.</li>
+                        <li><strong>Spend the Mystic’s power</strong> Only a Mystic with unused Brainwash power can restore a piece. Restoration spends that once-only power.</li>
+                        <li><strong>Turn the piece back</strong> Restore its original allegiance and orientation on the same square. Return the Mystic to its original square.</li>
+                      </ol>
+                      <p class="imperion__callout"><b>Counts as one move.</b></p>
+                    </div>
+                    <figure class="mystic-special">
+                      <p class="imperion__boundary">Two squares apart</p>
+                      <div class="mystic-state" aria-hidden="true">
+                        <h5 class="imperion__diagram-title">Before</h5>
+                        <div class="mystic-strip">
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark" src="public/images/learn/pieces/mystic.webp" width="372" height="736" alt="">
+                            <span class="mystic-peg"></span>
+                          </div>
+                          <div class="mystic-strip__square mystic-strip__empty"></div>
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark mystic-facing--right" src="public/images/learn/pieces/knight.webp" width="423" height="736" alt="">
+                            <span class="mystic-peg"></span>
+                          </div>
+                          <div class="mystic-strip__label"><b>Mystic<br>Town A</b><span>Unused</span></div>
+                          <div class="mystic-strip__label mystic-strip__label--empty">Empty</div>
+                          <div class="mystic-strip__label"><b>Knight<br>Town B</b><span>Faces →</span></div>
+                        </div>
+                      </div>
+                      <div class="mystic-state" aria-hidden="true">
+                        <h5 class="imperion__diagram-title">After</h5>
+                        <div class="mystic-strip">
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark" src="public/images/learn/pieces/mystic.webp" width="372" height="736" alt="">
+                          </div>
+                          <div class="mystic-strip__square mystic-strip__empty"></div>
+                          <div class="mystic-strip__square">
+                            <img class="mystic-piece--dark mystic-facing--left" src="public/images/learn/pieces/knight.webp" width="423" height="736" alt="">
+                          </div>
+                          <div class="mystic-strip__label"><b>Mystic<br>Town A</b><span>Spent</span></div>
+                          <div class="mystic-strip__label mystic-strip__label--empty">Empty</div>
+                          <div class="mystic-strip__label"><b>Knight<br>Town A</b><span>Faces ←</span></div>
+                        </div>
+                      </div>
+                      <figcaption>
+                        <p>Before, the Town A Mystic has its peg. One empty square separates it from the converted Knight with a peg facing right for Town B.</p>
+                        <p>After, both pieces stay on their squares. The Knight turns back to Town A. Both pegs are removed. The Mystic’s power is spent.</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                </div>
+                <footer class="imperion__footer">
+                  <button type="button" data-lesson-step="-1" disabled>← Previous</button>
+                  <span class="imperion__status" role="status">1 of 3</span>
+                  <button type="button" data-lesson-step="1">Next →</button>
+                </footer>
               </div>
-              <span class="learn-pieces__name">Mystic</span>
             </li>
             <li>
               <button class="piece-lesson-trigger" id="knight-trigger" type="button" aria-label="Knight — learn about the Knight" aria-haspopup="dialog" aria-expanded="false" aria-controls="knight-popup" disabled>
