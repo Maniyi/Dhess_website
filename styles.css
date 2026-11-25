@@ -3523,7 +3523,7 @@ a.button-gold:hover { filter: brightness(1.1); }
   .imperion__footer { padding-block: 3px; }
 }
 
-/* Queen lesson diagrams */
+/* Queen and Bishop movement diagram styling */
 .queen-board__origin {
   fill: #ffe29a;
   stroke: #412413;
@@ -3539,34 +3539,41 @@ a.button-gold:hover { filter: brightness(1.1); }
 }
 
 .queen-board__move,
-.queen-board__capture {
+.queen-board__capture,
+.bishop-board__move,
+.bishop-board__capture {
   stroke-width: 4;
   stroke-linecap: round;
 }
 
-.queen-board__move {
+.queen-board__move,
+.bishop-board__move {
   stroke: #ffd45e;
   filter: drop-shadow(0 0 1px #351b0d) drop-shadow(0 0 1px #351b0d);
 }
 
-.queen-board__capture {
+.queen-board__capture,
+.bishop-board__capture {
   stroke: #951b33;
   stroke-dasharray: 7 5;
   filter: drop-shadow(0 0 1px #fff2d3) drop-shadow(0 0 1px #fff2d3);
 }
 
-.queen-key {
+.queen-key,
+.bishop-key {
   display: inline-block;
   width: 1.2em;
   margin-inline-end: .1em;
   vertical-align: .2em;
 }
 
-.queen-key--move {
+.queen-key--move,
+.bishop-key--move {
   border-top: 3px solid #ffd45e;
   box-shadow: 0 0 0 1px #76510b;
 }
-.queen-key--capture { border-top: 3px dashed #951b33; }
+.queen-key--capture,
+.bishop-key--capture { border-top: 3px dashed #951b33; }
 .queen-key--blocker {
   width: .85em;
   aspect-ratio: 1;
@@ -3681,3 +3688,22 @@ a.button-gold:hover { filter: brightness(1.1); }
 
 .knight-key--capture { border-top: 3px dashed #951b33; }
 .imperion__legend .knight-key--unavailable { color: #352015; }
+
+/* Bishop lesson diagrams */
+.bishop-board__squares { fill: #f5d49e; }
+.bishop-board__squares g:nth-child(odd) rect:nth-child(even),
+.bishop-board__squares g:nth-child(even) rect:nth-child(odd) { fill: #754321; }
+
+.bishop-board__target {
+  fill: #fff2d3;
+  fill-opacity: .75;
+  stroke: #951b33;
+  stroke-width: 3;
+  stroke-dasharray: 5 3;
+}
+
+.bishop-board__landing {
+  fill: none;
+  stroke: #76510b;
+  stroke-width: 2;
+}

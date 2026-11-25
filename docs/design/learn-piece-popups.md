@@ -1,6 +1,6 @@
 # Learn piece popups
 
-The King opens “The Imperion — King,” and the Queen opens “The Queen,” each with two lesson pages. The Knight opens “The Knight” with one lesson. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
+The King opens “The Imperion — King,” the Queen opens “The Queen,” and the Bishop opens “The Bishop,” each with two lesson pages. The Knight opens “The Knight” with one lesson. The gallery keeps its seven-piece arrangement and all seven labels. The full piece guide remains pending. [Gallery artwork guide](learn-piece-assets.md) · [Pending items](../homepage-pending-items.md)
 
 ## Visual design
 
@@ -8,9 +8,9 @@ The two supplied references inform the warm parchment panel, double gold rim, bu
 
 ## Interaction and accessibility
 
-The King, Queen, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
+The King, Queen, Bishop, and Knight buttons expose their expanded state and reference named, nonmodal native popovers with dialog semantics. A mouse hover opens a lesson after 230 ms without shifting focus. A 350 ms grace period lets the pointer travel into the panel. Pointer departure leaves the panel open while it contains focus, and hovering another trigger keeps focus in the current lesson. Click, tap, Enter, and Space open the selected panel and focus its close control. Only one panel opens at a time. Switching clears pending hover timers and updates the affected triggers’ expanded states. The close button returns focus to its own trigger. Escape does the same when it dismisses a focused lesson. Tab can leave the panel, and clicking or tapping elsewhere dismisses it.
 
-Each fresh opening starts on Palace Movement for the Imperion or Move & Capture for the Queen and Knight. In the two-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All three content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
+Each fresh opening starts on Palace Movement for the Imperion, Move & Capture for the Queen and Knight, or Diagonal Move & Capture for the Bishop. In the two-page lessons, page selectors expose their pressed state and the footer announces the current page. Previous and Next focus the new lesson heading, and the inactive section is hidden from keyboard navigation and assistive technology. All four content regions can be reached and scrolled by keyboard. The popups use no motion or smooth scrolling.
 
 ## Diagram geometry
 
@@ -49,3 +49,17 @@ The diagram uses 100 explicit 40 × 40 SVG cells with A1 at the lower left. The 
 | Capture | G4, opposing Pawn | Dashed burgundy arrow and target outline |
 | Friendly-occupied landing | G6, friendly Bishop | Framed square with × |
 | Jump over a piece | E6, Rook between E5 and the bend for D7 and F7 | Ivory Rook drawn over the shared arrow segment |
+
+## Bishop lessons
+
+**The Bishop**, “The East African High Chief,” uses the approved ivory cutout and the shared lesson frame and controls. Each diagram has 100 explicit 40 × 40 SVG cells, with A1 at the lower left and the Bishop at E5. The captions give the same examples in text. [Diagonal reference](../../assets/source/learn-popups/bishop-diagonal-reference.png) · [Switching reference](../../assets/source/learn-popups/bishop-switch-reference.png)
+
+**Diagonal Move & Capture.** The Bishop can move any distance diagonally along a clear path. It captures an opponent by landing on its square along that same diagonal. Intervening pieces block either action because the Bishop cannot jump. The lesson introduces the sideways switch on the second page.
+
+**Switching Move.** The Bishop moves exactly one square left or right to an empty adjacent square. The move switches between land and sea, uses the entire turn, and cannot capture. Both destinations change the square color. The example leaves the land and sea colors unspecified.
+
+| Example | Coordinates | Diagram key |
+| --- | --- | --- |
+| Empty diagonal paths | E5 → J10 or A1 | Solid gold arrows |
+| Alternative captures | E5 → B8 (opposing Rook) or H2 (opposing Knight) | Dashed burgundy arrows ending on outlined targets |
+| Alternative switches | E5 → D5 or F5 | Solid gold arrows ending on outlined, empty adjacent squares |
